@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1002000" android:versionName="10.2.0" android:installLocation="auto" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="tv.twitch.android.app" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29"/>
+    <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:glEsVersion="20000" android:required="true"/>
+    <uses-permission android:name="com.android.vending.BILLING" android:required="false"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:theme="@style/Theme.TwitchApp" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:name="p023tv.twitch.android.app.consumer.TwitchApplication" android:enabled="true" android:allowBackup="false" android:largeHeap="true" android:supportsRtl="true" android:usesCleartextTraffic="true" android:networkSecurityConfig="@xml/default_security_config" android:roundIcon="@mipmap/ic_launcher_round" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:requestLegacyExternalStorage="true">
+        <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="phone"/>
+        <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="portrait"/>
+        <meta-data android:name="android.allow_multiple_resumed_activities" android:value="true"/>
+        <meta-data android:name="asset_statements" android:resource="@string/asset_statements"/>
+        <meta-data android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME" android:value="tv.twitch.android.shared.chromecast.CastOptionsProvider"/>
+        <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:theme="@style/SplashTheme" android:label="@string/app_name" android:name="p023tv.twitch.android.app.core.LandingActivity" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:noHistory="true">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http" android:host="www.twitch.tv"/>
+                <data android:scheme="http" android:host="twitch.tv"/>
+                <data android:scheme="http" android:host="m.twitch.tv"/>
+                <data android:scheme="http" android:host="clips.twitch.tv"/>
+                <data android:scheme="http" android:host="go.twitch.tv"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="www.twitch.tv"/>
+                <data android:scheme="https" android:host="twitch.tv"/>
+                <data android:scheme="https" android:host="m.twitch.tv"/>
+                <data android:scheme="https" android:host="clips.twitch.tv"/>
+                <data android:scheme="https" android:host="go.twitch.tv"/>
+                <data android:scheme="https" android:host="twitch.test-app.link"/>
+                <data android:scheme="https" android:host="twitch.app.link"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="twitch"/>
+                <data android:scheme="ttv" android:host="broadcast"/>
+                <data android:scheme="ttv" android:host="open"/>
+                <data android:scheme="ttv" android:host="stream"/>
+                <data android:scheme="ttv" android:host="game"/>
+                <data android:scheme="ttv" android:host="channel"/>
+                <data android:scheme="ttv" android:host="following"/>
+                <data android:scheme="ttv" android:host="login"/>
+                <data android:scheme="ttv" android:host="signup"/>
+                <data android:scheme="ttv" android:host="video"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.TwitchApp" android:label="@string/app_name" android:name="p023tv.twitch.android.app.core.MainActivity" android:launchMode="singleTask" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustResize" android:resizeableActivity="true" android:supportsPictureInPicture="true"/>
+        <activity android:name="p023tv.twitch.android.shared.chromecast.view.TwitchExpandedControllerActivity" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustPan" android:resizeableActivity="false"/>
+        <activity android:name="p023tv.twitch.android.core.activities.WebViewActivity"/>
+        <activity android:name="p023tv.twitch.android.feature.theatre.clipedit.ClipEditTitleActivity" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan"/>
+        <activity android:name="p023tv.twitch.android.feature.theatre.clipedit.ClipEditTimeActivity" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize"/>
+        <service android:name="p023tv.twitch.android.player.pictureinpicture.PictureInPictureService"/>
+        <service android:name="p023tv.twitch.android.player.backgroundaudio.BackgroundAudioNotificationService" android:exported="false">
+            <intent-filter>
+                <action android:name="tv.twitch.android.media.action.toggleplayback"/>
+                <action android:name="tv.twitch.android.media.action.stop"/>
+                <action android:name="tv.twitch.android.media.action.audiobecomingnoisy"/>
+                <action android:name="tv.twitch.android.media.action.notificationvisibility"/>
+                <action android:name="tv.twitch.android.media.action.launchapp"/>
+            </intent-filter>
+        </service>
+        <activity android:theme="@style/Theme.Translucent" android:name="com.google.android.gms.ads.AdActivity" android:exported="false" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        <activity android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:name="com.yalantis.ucrop.UCropActivity" android:screenOrientation="portrait"/>
+        <service android:name="p023tv.twitch.android.app.notifications.push.TwitchFCMListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="p023tv.twitch.android.app.notifications.push.NotificationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="tv.twitch.android.push.channel"/>
+                <action android:name="tv.twitch.android.push.dashboard"/>
+                <action android:name="tv.twitch.android.push.whisper"/>
+                <action android:name="tv.twitch.android.push.video"/>
+                <action android:name="tv.twitch.android.push.roommention"/>
+                <action android:name="tv.twitch.android.push.report"/>
+                <action android:name="tv.twitch.android.push.notificationsettings"/>
+                <action android:name="tv.twitch.android.push.discover"/>
+                <action android:name="tv.twitch.android.push.dismiss"/>
+                <action android:name="tv.twitch.android.push.category"/>
+                <action android:name="tv.twitch.android.push.webview"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="p023tv.twitch.android.shared.app.indexing.AppIndexingUpdateReceiver" android:permission="com.google.android.gms.permission.APPINDEXING" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.appindexing.UPDATE_INDEX"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="p023tv.twitch.android.shared.app.indexing.AppIndexingUpdateService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:name="androidx.core.content.FileProvider" android:exported="false" android:authorities="tv.twitch.android.app.provider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
+        <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
+        <activity android:name="p023tv.twitch.android.broadcast.activity.BroadcastActivity" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustPan" android:resizeableActivity="false"/>
+        <activity android:theme="@style/Theme.Twitch.Translucent" android:name="p023tv.twitch.android.broadcast.permission.BroadcastActionConfirmationActivity" android:excludeFromRecents="true" android:launchMode="singleInstance"/>
+        <activity android:theme="@style/Theme.Twitch" android:name="p023tv.twitch.android.broadcast.gamebroadcast.settings.StreamControlsSettingsActivity" android:excludeFromRecents="true" android:launchMode="singleInstance" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize"/>
+        <service android:label="@string/app_name" android:name="p023tv.twitch.android.broadcast.gamebroadcast.GameBroadcastService" android:foregroundServiceType="20"/>
+        <activity android:theme="@style/Theme.Twitch" android:name="p023tv.twitch.android.feature.channelprefs.ChannelPreferencesActivity" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustResize"/>
+        <activity android:theme="@style/Theme.Twitch" android:name="p023tv.twitch.android.feature.clipfinity.ClipfinityActivity" android:launchMode="singleTask" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustResize" android:resizeableActivity="true"/>
+        <activity android:theme="@style/Theme.Twitch" android:label="@string/settings" android:name="p023tv.twitch.android.settings.SettingsActivity" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.NOTIFICATION_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.Twitch" android:name="p023tv.twitch.android.login.LoginActivity" android:launchMode="singleTask" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustResize" android:resizeableActivity="true"/>
+        <activity android:name="p023tv.twitch.android.core.crashreporter.QaErrorActivity"/>
+        <activity android:theme="@style/Theme.NoDisplay" android:name="com.amazon.identity.auth.device.workflow.WorkflowActivity" android:launchMode="singleTask" android:allowTaskReparenting="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="amzn" android:host="tv.twitch.android.app"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver" android:exported="false"/>
+        <service android:name="com.google.android.gms.cast.framework.media.MediaNotificationService" android:exported="false"/>
+        <service android:name="com.google.android.gms.cast.framework.ReconnectionService" android:exported="false"/>
+        <service android:name="androidx.room.MultiInstanceInvalidationService" android:exported="false" android:directBootAware="true"/>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false" android:directBootAware="true">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.ndk.CrashlyticsNdkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:exported="false" android:excludeFromRecents="true"/>
+        <service android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:exported="true" android:visibleToInstantApps="true"/>
+        <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="false" android:directBootAware="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="tv.twitch.android.app.firebaseinitprovider" android:initOrder="100" android:directBootAware="true"/>
+        <receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementService" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+        <provider android:name="com.google.android.gms.ads.MobileAdsInitProvider" android:exported="false" android:authorities="tv.twitch.android.app.mobileadsinitprovider" android:initOrder="100"/>
+        <service android:name="com.google.android.gms.ads.AdService" android:enabled="true" android:exported="false"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="2.0.0"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.android.billingclient.api.ProxyBillingActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <service android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery" android:exported="false">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false"/>
+        <receiver android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver" android:exported="false"/>
+        <activity android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:enabled="false" android:exported="false" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true" android:launchMode="singleInstance"/>
+        <activity android:theme="@style/Theme.PlayCore.Transparent" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:enabled="false" android:exported="false" android:stateNotNeeded="true"/>
+        <service android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService" android:enabled="false" android:exported="true"/>
+        <receiver android:name="com.amazon.avod.identity.AVODMAPBroadcastReceiver" android:permission="com.amazon.dcp.sso.permission.account.changed" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="com.amazon.dcp.sso.action.account.added"/>
+                <action android:name="com.amazon.dcp.sso.action.account.removed"/>
+                <action android:name="com.amazon.dcp.sso.action.secondary.account.added"/>
+                <action android:name="com.amazon.dcp.sso.action.secondary.account.removed"/>
+                <action android:name="com.amazon.identity.action.ACCOUNT_FOR_PACKAGE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.amazon.avod.identity.AVODMAPBroadcastProcessingIntentService" android:exported="false"/>
+        <service android:name="com.amazon.avod.identity.AVODMAPBroadcastProcessingJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false"/>
+        <provider android:name="com.amazon.mls.config.internal.sushi.background.ProcessLifecycleTrackerInitialization" android:enabled="true" android:exported="false" android:authorities="tv.twitch.android.app.mlsInitializationProvider"/>
+        <service android:name="com.amazon.mls.config.internal.sushi.uploader.BackupUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:value="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

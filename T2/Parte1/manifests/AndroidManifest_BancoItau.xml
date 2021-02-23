@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1286" versionName="6.49.0" NOT_FOUND_0x32="29" NOT_FOUND_0x33="10" package="com.itau" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-sdk minSdkVersion="21" targetSdkVersion="29"/>
+    <uses-feature name="android.hardware.camera"/>
+    <uses-feature glEsVersion="20000" required="true"/>
+    <uses-permission name="android.permission.INTERNET"/>
+    <uses-permission name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission name="android.permission.REQUEST_PERMISSION_GET_ACCOUNTS"/>
+    <uses-permission name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission name="android.permission.CAMERA"/>
+    <uses-permission name="android.permission.READ_CONTACTS"/>
+    <uses-permission name="android.permission.CALL_PHONE"/>
+    <uses-permission name="android.permission.VIBRATE"/>
+    <uses-permission name="android.permission.RECORD_AUDIO"/>
+    <uses-permission name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission name="android.permission.WAKE_LOCK"/>
+    <uses-permission name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission name="android.permission.BLUETOOTH"/>
+    <uses-permission name="android.permission.BROADCAST_STICKY"/>
+    <permission name="br.com.itau.security.WDID" protectionLevel="signature"/>
+    <uses-permission name="br.com.itau.security.WDID"/>
+    <uses-feature name="android.hardware.camera.autofocus" required="true"/>
+    <supports-screens> android:resizeable=&quot;true&quot;\10        android:smallScreens=&quot;true&quot;\10        android:normalScreens=&quot;true&quot;\10        android:largeScreens=&quot;true&quot;\10        android:xlargeScreens=&quot;true&quot;\10        android:anyDensity=&quot;true&quot; 
+    </supports-screens>
+    <uses-permission name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application theme="@style/2132017623" label="@string/2131952416" android:icon="@mipmap/ic_launcher" name="o.getCategoryOutcome" manageSpaceActivity="o.isContingencyMode" allowBackup="false" hardwareAccelerated="true" largeHeap="true" supportsRtl="true" NOT_FOUND_0x2d="true" NOT_FOUND_0x30="@xml/2132213769" NOT_FOUND_0x31="@mipmap/ic_launcher_round" NOT_FOUND_0x34="o.setTitleMargin" NOT_FOUND_0x35="true">
+        <activity android:name="p009o.getPercentTotal"/>
+        <activity android:name="p009o.Receiver"/>
+        <activity android:name="o.AnimationUtils$14"/>
+        <activity android:name="p009o.setCarrierAndRegion"/>
+        <activity android:name="p009o.setDynamicDetail"/>
+        <activity android:name="p009o.getEmv"/>
+        <activity android:name="p009o.ReceiverV2"/>
+        <activity android:name="p009o.setIdTransfer"/>
+        <activity android:name="p009o.getPrimaryDarkColor" screenOrientation="portrait"/>
+        <activity theme="@style/2132017669" android:name="p009o.setDigitalWallet" screenOrientation="portrait"/>
+        <provider name="o.canShowOverflowMenu" exported="false" authorities="com.itau.provider" grantUriPermissions="true">
+            <meta-data name="android.support.FILE_PROVIDER_PATHS" resource="@xml/2132213770"/>
+        </provider>
+        <provider name=".cp.CP" exported="true" authorities="com.itau"/>
+        <uses-library name="org.apache.http.legacy" required="false"/>
+        <activity theme="@style/2132017638" android:name="p009o.onLocaStorageWebviewChange" launchMode="singleTask" screenOrientation="portrait"/>
+        <activity android:name="p009o.setUniclassState" screenOrientation="portrait"/>
+        <activity android:name="p009o.removeImageFromStorage" screenOrientation="portrait"/>
+        <activity android:name="p009o.catchVerse" screenOrientation="portrait"/>
+        <activity android:name="p009o.closeButton" screenOrientation="portrait"/>
+        <activity android:name="p009o.hideStatementToolbar" launchMode="singleTask" screenOrientation="portrait" windowSoftInputMode="adjustPan"/>
+        <activity theme="@style/2132017482" android:name="p009o.unlockNavigationDrawer" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" label="@string/2131954354" android:name="p009o.getAdobePageName" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" label="@string/2131959896" android:name="p009o.getCodType" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" android:name="p009o.setDateFirstInstallmentMax" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" label="" android:name="p009o.setEditSearchActionListener" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017623" label="@string/2131958967" android:name="p009o.logoutForceSessionExpired" screenOrientation="portrait" windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize"/>
+        <activity theme="@style/2132017680" label="@string/2131959892" android:name="p009o.enableTabbar" screenOrientation="portrait" windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize"/>
+        <activity label="" android:name="p009o.setPaintFillRadius" screenOrientation="portrait" windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize"/>
+        <activity theme="@style/2132017623" label="@string/2131953570" android:name="p009o.getTabBarView" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" label="@string/2131953570" android:name="p009o.access$000" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" label="@string/2131959893" android:name="p009o.showMessageError" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" label="@string/2131959888" android:name="p009o.isNavigationDrawerInstance" screenOrientation="portrait"/>
+        <activity label="@string/2131954320" android:name="p009o.setProgressWithSmoothStartEndAnimation" screenOrientation="portrait"/>
+        <activity label="@string/2131959880" android:name="p009o.broadcastGotoCategory" screenOrientation="portrait"/>
+        <activity label="@string/2131959879" android:name="p009o.getTransferFavoredAccount" screenOrientation="portrait"/>
+        <activity label="@string/2131959878" android:name="p009o.setTransferFavoredAgency" screenOrientation="portrait"/>
+        <activity label="@string/2131957254" android:name="p009o.getTransferFavoredName" screenOrientation="portrait"/>
+        <activity label="@string/2131954792" android:name="p009o.showSearchField" screenOrientation="portrait"/>
+        <activity android:name="p009o.showSimultaneousSessionError" screenOrientation="portrait"/>
+        <activity label="@string/2131957356" android:name="p009o.startCapture" screenOrientation="portrait"/>
+        <activity label="@string/2131959997" android:name="p009o.setPageColor"/>
+        <activity label="@string/2131959997" android:name="p009o.setScrollDurationFactor"/>
+        <activity label="@string/2131959897" android:name="p009o.onWaitingForToken"/>
+        <activity android:name="p009o.PaymentConfirmationActivity$ScreenType"/>
+        <activity label="@string/2131959894" android:name="p009o.CheckCaptureFragment"/>
+        <activity android:name="p009o.openChat"/>
+        <activity android:name="p009o.setTextStatementSelectedItems"/>
+        <activity android:name="p009o.hideSearchField"/>
+        <activity android:name="p009o.getRecipientCopy"/>
+        <activity theme="@style/2132017623" android:name="p009o.getCreditCardsV3"/>
+        <activity theme="@style/2132017623" android:name="p009o.getImageName"/>
+        <activity theme="@style/2132017623" android:name="o.getValueOrOptional$default"/>
+        <activity theme="@style/2132017623" android:name="p009o.setImageName" windowSoftInputMode="adjustResize"/>
+        <activity label="@string/2131959929" android:name="p009o.continueOnIToken"/>
+        <activity android:name="p009o.broadcastAction" screenOrientation="landscape"/>
+        <activity label="@string/2131958649" android:name="p009o.Document" screenOrientation="portrait"/>
+        <activity label="@string/2131958727" android:name="p009o.setStabishmentLocation" screenOrientation="portrait" windowSoftInputMode="adjustPan"/>
+        <activity label="@string/2131958727" android:name="p009o.setShadowColor" screenOrientation="portrait"/>
+        <activity label="@string/2131958649" android:name="p009o.setTotalAssessment" screenOrientation="portrait"/>
+        <activity label="@string/2131958649" android:name="p009o.getValueTotal" screenOrientation="portrait"/>
+        <activity label="@string/2131959977" android:name="p009o.clearNotifications" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" android:name="p009o.configureTheme" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" android:name="p009o.afterInjectBaseActivity" screenOrientation="portrait"/>
+        <activity label="@string/2131959975" android:name="p009o.navigateUp" screenOrientation="landscape"/>
+        <activity label="@string/2131959930" android:name="p009o.setStatementToolbarListener" screenOrientation="portrait"/>
+        <activity label="@string/2131959977" android:name="p009o.showLoadingDialog" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" android:name="p009o.getFinalValue" screenOrientation="portrait"/>
+        <activity label="@string/2131959009" android:name="p009o.selectSide" screenOrientation="portrait"/>
+        <activity android:name="p009o.broadcastGoToBrowser" screenOrientation="portrait"/>
+        <activity android:name="p009o.setToolbarOverlayClickListener" screenOrientation="portrait"/>
+        <activity android:name="p009o.gotoScreen" screenOrientation="landscape"/>
+        <activity android:name="p009o.handleErrorAndShouldContinueToDefault" screenOrientation="portrait"/>
+        <activity theme="@style/2132017182" android:name="p009o.calculateFormatter"/>
+        <activity label="@string/2131954439" android:name="p009o.getToolBarTitleView" screenOrientation="portrait" windowSoftInputMode="stateAlwaysHidden"/>
+        <activity label="@string/2131952353" android:name="p009o.getTransferFavoredSufix" screenOrientation="portrait"/>
+        <activity label="@string/2131954439" android:name="p009o.visibileRelativeAccountOnlineAction" screenOrientation="portrait"/>
+        <activity android:name="p009o.PFMMyFinancesContractWrapper" screenOrientation="portrait"/>
+        <activity android:name="p009o.getExemptionPercentage" screenOrientation="portrait"/>
+        <activity android:name="p009o.getCreditList" screenOrientation="portrait"/>
+        <activity android:name="p009o.setCreditList" screenOrientation="portrait"/>
+        <activity android:name="p009o.getCancellationDateUsedContracting" screenOrientation="portrait"/>
+        <activity android:name="p009o.setUseLimitDate" screenOrientation="portrait"/>
+        <activity android:name="p009o.setDayBalances" screenOrientation="portrait"/>
+        <activity android:name="p009o.PFMDayBalance" screenOrientation="portrait"/>
+        <activity android:name="p009o.isReleaseHeader" screenOrientation="portrait"/>
+        <activity android:name="p009o.setCancellationDateUsedContracting" screenOrientation="portrait"/>
+        <activity android:name="p009o.setTotalBalanceValue" screenOrientation="portrait"/>
+        <activity android:name="p009o.getTotalBalanceValue" screenOrientation="portrait"/>
+        <activity android:name="p009o.setInvestmentList" screenOrientation="portrait"/>
+        <activity android:name="p009o.getBalanceValue" screenOrientation="portrait"/>
+        <activity android:name="p009o.getBalanceDate" screenOrientation="portrait"/>
+        <activity label="@string/2131957515" android:name="p009o.isExemption" screenOrientation="portrait"/>
+        <activity label="@string/2131958188" android:name="p009o.getStatusIfContract" screenOrientation="portrait"/>
+        <activity label="@string/2131957515" android:name="p009o.getContractingDate" screenOrientation="portrait"/>
+        <activity label="@string/2131953570" android:name="p009o.setupToolbar" screenOrientation="portrait"/>
+        <activity theme="@style/2132017628" label="@string/2131958649" android:name="p009o.setToolbarTitle" screenOrientation="portrait"/>
+        <activity label="@string/2131959891" android:name="p009o.getTabBarCustomizeView" screenOrientation="portrait"/>
+        <activity android:name="p009o.setEligibleCreditCards" screenOrientation="portrait"/>
+        <activity android:name="p009o.setNegativeBalance" screenOrientation="portrait"/>
+        <activity android:name="p009o.setTypes" screenOrientation="portrait"/>
+        <activity android:name="p009o.hasMessage" screenOrientation="portrait"/>
+        <activity theme="@style/2132017887" android:name="p009o.setLines" screenOrientation="portrait"/>
+        <activity android:name="p009o.setColor" screenOrientation="portrait"/>
+        <activity theme="@style/2132017887" android:name="o.DetailCheckingAccountActivity$Companion" screenOrientation="portrait"/>
+        <activity android:name="p009o.BankModel" screenOrientation="portrait"/>
+        <activity label="@string/2131959169" android:name="p009o.gaScreenName" screenOrientation="portrait"/>
+        <activity android:name="p009o.setSwipeOffset"/>
+        <activity android:name="p009o.setSnap"/>
+        <activity theme="@style/2132017918" android:name="com.biocatch.client.android.sdk.permissions.PermissionActivity"/>
+        <activity label="" android:name="p009o.resetTriggers" screenOrientation="portrait"/>
+        <activity android:name="p009o.isShowLisRepository" screenOrientation="portrait" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="p009o.access$size" screenOrientation="portrait"/>
+        <activity android:name="p009o.access$configureLisEmpty" screenOrientation="portrait"/>
+        <activity android:name="p009o.TimelineAdapter$addLoadingFooter$1" screenOrientation="portrait"/>
+        <receiver icon="@mipmap/ic_launcher" name="br.com.itau.pf.widget.ShortcutAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="br.com.itau.pf.WIDGET_BUTTON_ITAU"/>
+                <action android:name="br.com.itau.pf.WIDGET_BUTTON_EXTRATO"/>
+                <action android:name="br.com.itau.pf.WIDGET_BUTTON_TRANSFERENCIA"/>
+                <action android:name="br.com.itau.pf.WIDGET_BUTTON_PAGTOS"/>
+                <action android:name="br.com.itau.pf.WIDGET_BUTTON_ITOKEN"/>
+                <action android:name="br.com.itau.pf.WIDGET_UPDATE_ITOKEN"/>
+            </intent-filter>
+            <meta-data name="android.appwidget.provider" resource="@xml/2132213761"/>
+        </receiver>
+        <receiver name="br.com.itau.pf.InstallReceiver" exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" screenOrientation="portrait" android:value="@string/2131954241"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/2131492891"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/2131954727"/>
+        <activity theme="@style/2132017477" android:name="p009o.isTaxPayment" screenOrientation="portrait"/>
+        <activity android:name="p009o.navigateBack"/>
+        <activity android:name="p009o.setSizeLimit"/>
+        <activity android:name="p009o.setTransferFavoredAccount" screenOrientation="portrait"/>
+        <activity android:name="p009o.showStatementToolbar" screenOrientation="portrait"/>
+        <activity android:name="p009o.afterViews" screenOrientation="portrait"/>
+        <activity android:name="p009o.openActivity" screenOrientation="portrait"/>
+        <activity android:name="p009o.hideToolbarSendStatementSelected" screenOrientation="portrait"/>
+        <activity theme="@style/2132017737" android:name="p000br.com.itau.p003pf.p004ui.activity.SplashActivity_" launchMode="singleTask" screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="@string/2131953845"/>
+                <data android:scheme="@string/2131953846"/>
+                <data android:host="@string/2131957160"/>
+                <data android:host="@string/2131957103"/>
+                <data android:host="@string/2131957108"/>
+                <data android:host="@string/2131957148"/>
+                <data android:host="@string/2131957104"/>
+                <data android:host="@string/2131957159"/>
+                <data android:host="@string/2131957187"/>
+                <data android:host="@string/2131957179"/>
+                <data android:host="@string/2131957150"/>
+                <data android:host="@string/2131957145"/>
+                <data android:host="@string/2131957190"/>
+                <data android:host="@string/2131957135"/>
+                <data android:host="@string/2131957137"/>
+                <data android:host="@string/2131957136"/>
+                <data android:host="@string/2131957186"/>
+                <data android:host="@string/2131957118"/>
+                <data android:host="@string/2131957185"/>
+                <data android:host="@string/2131957122"/>
+                <data android:host="@string/2131957146"/>
+                <data android:host="@string/2131957138"/>
+                <data android:host="@string/2131957109"/>
+                <data android:host="@string/2131957183"/>
+                <data android:host="@string/2131957169"/>
+                <data android:host="@string/2131957134"/>
+                <data android:host="@string/2131957119"/>
+                <data android:host="@string/2131957175"/>
+                <data android:host="@string/2131957192"/>
+                <data android:host="@string/2131957126"/>
+                <data android:host="@string/2131957147"/>
+                <data android:host="@string/2131957155"/>
+                <data android:host="@string/2131957105"/>
+                <data android:host="@string/2131957153"/>
+                <data android:host="@string/2131957191"/>
+                <data android:host="@string/2131957120"/>
+                <data android:host="@string/2131957124"/>
+                <data android:host="@string/2131957111"/>
+                <data android:host="@string/2131957107"/>
+                <data android:host="@string/2131957154"/>
+                <data android:host="spa"/>
+                <data android:host="@string/2131957170"/>
+                <data android:host="@string/2131957174"/>
+                <data android:host="@string/2131957184"/>
+                <data android:host="@string/2131957156"/>
+                <data android:host="@string/2131957182"/>
+                <data android:host="@string/2131957165"/>
+                <data android:host="@string/2131957171"/>
+                <data android:host="@string/2131957163"/>
+                <data android:host="@string/2131957164"/>
+                <data android:host="@string/2131957162"/>
+                <data android:host="@string/2131957178"/>
+                <data android:host="@string/2131957125"/>
+                <data android:host="@string/2131957115"/>
+                <data android:host="@string/2131957189"/>
+                <data android:host="@string/2131957106"/>
+                <data android:host="@string/2131957172"/>
+                <data android:host="@string/2131957114"/>
+                <data android:host="@string/2131957102"/>
+                <data android:host="@string/2131957166"/>
+                <data android:host="@string/2131957139"/>
+                <data android:host="@string/2131957167"/>
+                <data android:host="@string/2131957168"/>
+                <data android:host="@string/2131957116"/>
+                <data android:host="@string/2131957127"/>
+                <data android:host="@string/2131957128"/>
+                <data android:host="@string/2131957121"/>
+                <data android:host="@string/2131957123"/>
+                <data android:host="@string/2131957193"/>
+                <data android:host="@string/2131957194"/>
+                <data android:host="@string/2131957152"/>
+                <data android:host="@string/2131957151"/>
+                <data android:host="@string/2131957188"/>
+                <data android:host="@string/2131957149"/>
+                <data android:host="@string/2131953259"/>
+                <data android:host="@string/2131957187"/>
+                <data android:host="@string/2131957129"/>
+                <data android:host="@string/2131957181"/>
+                <data android:host="@string/2131957180"/>
+                <data android:host="@string/2131957133"/>
+                <data android:host="@string/2131957101"/>
+                <data android:host="@string/2131957130"/>
+                <data android:host="@string/2131957144"/>
+                <data android:host="@string/2131957142"/>
+                <data android:host="@string/2131957143"/>
+                <data android:host="@string/2131957141"/>
+                <data android:host="@string/2131957140"/>
+                <data android:host="@string/2131957117"/>
+                <data android:host="@string/2131957132"/>
+                <data android:host="@string/2131957158"/>
+                <data android:host="@string/2131957112"/>
+                <data android:host="@string/2131957177"/>
+                <data android:host="@string/2131957173"/>
+                <data android:host="@string/2131957161"/>
+                <data android:host="@string/2131957157"/>
+                <data android:host="@string/2131957176"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="@string/2131953845"/>
+                <data android:scheme="@string/2131953846"/>
+                <data android:host="@string/2131957131" android:pathPrefix="/"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/pdf"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="file"/>
+                <data android:host="*"/>
+                <data android:mimeType="*/*"/>
+                <data android:pathPattern="/.*\\.pdf"/>
+                <data android:pathPattern="/.*..*\\.pdf"/>
+                <data android:pathPattern="/.*..*..*\\.pdf"/>
+                <data android:pathPattern="/.*..*..*..*\\.pdf"/>
+                <data android:mimeType="application/octet-stream" android:pathPattern=".*\\.tsconfig"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/pdf"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+        <activity label="" android:name="p009o.access$openCategorization" screenOrientation="portrait"/>
+        <activity label="@string/2131952176" android:name="p009o.access$setAdapter$p" screenOrientation="portrait" noHistory="true"/>
+        <activity label="" android:name="o.DetailCreditCardActivity$Companion" screenOrientation="portrait" noHistory="true"/>
+        <activity theme="@style/2132017623" label="telefone" android:name="p009o.playLottieAnimation" screenOrientation="portrait" noHistory="true"/>
+        <activity theme="@style/2132017918" android:name="p009o.getSegmentTheme"/>
+        <activity label="@string/2131958581" android:name="p009o.initMessenger" screenOrientation="portrait"/>
+        <activity theme="@style/2132017477" android:name="p009o.isSearchBoxIsEmpty" screenOrientation="portrait"/>
+        <activity android:name="p009o.navigateExternal" screenOrientation="portrait"/>
+        <activity android:name="p009o.hideLoadingDialog" screenOrientation="portrait"/>
+        <activity android:name="p009o.initToolbar" screenOrientation="portrait"/>
+        <activity theme="@style/2132017887" android:name="p009o.getOpKeys" screenOrientation="portrait"/>
+        <activity android:name="p009o.lambda$afterViews$0" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" label="@string/2131958649" android:name="p009o.setTabsFromPagerAdapter" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" android:name="p009o.setCustomRatio" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" label="@string/2131953912" android:name="p009o.setCardAccount" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" label="@string/2131952550" android:name="p009o.setProductLogo" screenOrientation="portrait"/>
+        <activity label="@string/2131959985" android:name="p009o.ProposalCreditRequest" screenOrientation="portrait"/>
+        <activity android:name="p009o.isContingencyMode"/>
+        <activity label="@string/2131953912" android:name="p009o.getGuidanceFrameColor" screenOrientation="portrait"/>
+        <activity android:name="p009o.callPermission" screenOrientation="portrait"/>
+        <service name="com.google.firebase.components.ComponentDiscoveryService" exported="false" NOT_FOUND_0x2f="true">
+            <meta-data name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.iid.Registrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.inappmessaging.FirebaseInAppMessagingRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.inappmessaging.display.FirebaseInAppMessagingDisplayRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver name="com.google.firebase.iid.FirebaseInstanceIdReceiver" permission="com.google.android.c2dm.permission.SEND" exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service name="com.google.android.gms.tagmanager.TagManagerService" enabled="true" exported="false"/>
+        <receiver name="com.google.android.gms.measurement.AppMeasurementReceiver" enabled="true" exported="false"/>
+        <receiver name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" permission="android.permission.INSTALL_PACKAGES" enabled="true" exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service name="com.google.android.gms.measurement.AppMeasurementService" enabled="true" exported="false"/>
+        <service name="com.google.android.gms.measurement.AppMeasurementJobService" permission="android.permission.BIND_JOB_SERVICE" enabled="true" exported="false"/>
+        <service name="com.google.firebase.iid.FirebaseInstanceIdService" exported="true">
+            <intent-filter priority="-4">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="ocr"/>
+        <activity theme="@style/2132017623" label="@string/2131952159" android:name="p009o.onHideKeyboard" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" label="@string/2131952159" android:name="p009o.onShowKeyboard" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" label="@string/2131952159" android:name="p009o.setSignalTotal" screenOrientation="portrait"/>
+        <activity label="@string/2131953570" android:name="p009o.setOwnerId" screenOrientation="portrait"/>
+        <activity label="@string/2131959968" android:name="p009o.setFlagName" screenOrientation="portrait"/>
+        <activity label="@string/2131958649" android:name="p009o.setConfiguration" screenOrientation="portrait"/>
+        <activity android:name="p000br.com.itau.sdk.android.payment.core.presentation.activation.activatewallet.ActivateWalletActivity" launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="com.itau.action.MC"/>
+                <action android:name="com.itau.pers.action.MC"/>
+                <action android:name="com.itau.a2a"/>
+                <action android:name="com.itau.pers.a2a"/>
+                <action android:name="com.itau.activity.action.ACTIVATE_TOKEN"/>
+                <action android:name="com.itau.pers.activity.action.ACTIVATE_TOKEN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="p009o.setNavigationMenuItem" screenOrientation="portrait" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity theme="@style/2132017623" label="" android:name="p009o.access$getTimelineSwipeRefresh$p" screenOrientation="portrait"/>
+        <activity android:name="p009o.PixPatterns"/>
+        <activity theme="@style/2132017623" label="" android:name="o.CategoryUpdateRequest$1" screenOrientation="portrait"/>
+        <activity label="@string/2131952798" android:name="p009o.setLastDigits" screenOrientation="portrait"/>
+        <activity android:name="p009o.setChpras" screenOrientation="portrait"/>
+        <activity android:name="p009o.validateCurrentCheque" screenOrientation="portrait"/>
+        <activity android:name="p009o.collapseView"/>
+        <activity android:name="p009o.AnimationSlideOutLeft"/>
+        <activity android:name="p009o.access$setDetailWithoutClientPackage" screenOrientation="portrait"/>
+        <activity android:name="p009o.isShowCategory" taskAffinity="@string/2131957471" screenOrientation="portrait" noHistory="true"/>
+        <activity label="@string/2131956950" android:name="p009o.access$setOriginalCards$p" screenOrientation="portrait"/>
+        <activity label="@string/2131959872" android:name="p009o.setReceiptConfirmationData" screenOrientation="portrait"/>
+        <activity label="@string/2131959995" android:name="p009o.setGroupLimitModel" screenOrientation="portrait" configChanges="keyboardHidden|orientation|screenSize" windowSoftInputMode="stateHidden"/>
+        <activity label="@string/2131959996" android:name="p009o.getReceiptConfirmationData" screenOrientation="portrait"/>
+        <activity android:name="com.vidyo.connect.VideoRoomActivity" configChanges="orientation|screenSize"/>
+        <activity android:name="p009o.announceSelectedView" screenOrientation="portrait"/>
+        <activity android:name="p009o.getReply" screenOrientation="portrait"/>
+        <activity android:name="p009o.SendEmailHubRequest" screenOrientation="portrait"/>
+        <activity android:name="p009o.getCheckValue" screenOrientation="portrait"/>
+        <activity android:name="p009o.getSubject" screenOrientation="portrait"/>
+        <activity label="" android:name="p009o.setProgress" screenOrientation="portrait"/>
+        <activity theme="@style/2132017623" android:name="p009o.isAviEnabled" screenOrientation="portrait"/>
+        <activity android:name="p009o.getCreditCardColorCode" screenOrientation="portrait"/>
+        <activity android:name="p009o.getSecondaryFieldCodes" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity android:name="p009o.setStatementsRequests" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity android:name="p009o.getActualizeCreditRequest" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity android:name="p009o.isUndoCategorization" screenOrientation="portrait" configChanges="orientation|screenSize"/>
+        <activity android:name="p009o.isCelebrate" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity android:name="p009o.setCategoryColor" screenOrientation="portrait"/>
+        <activity label="" android:name="p009o.PeriodEnum" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity label="" android:name="p009o.DailyExpensesTableRowEntity" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity android:name="p009o.setOriginStatementId" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity label="" android:name="p009o.getPastMonthValue" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity label="" android:name="p009o.parseJSONFileAnalytics" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity label="" android:name="p009o.ChequeCancelDialog" screenOrientation="portrait"/>
+        <activity android:name="p009o.replaceWith" screenOrientation="portrait"/>
+        <activity android:name="p009o.setFilteredBackground" screenOrientation="portrait"/>
+        <activity android:name="p009o.setShowFilteredIcon" screenOrientation="portrait"/>
+        <activity android:name="p009o.setUnfilteredIconColor" screenOrientation="portrait"/>
+        <activity android:name="p009o.getRecipient" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity android:name="p009o.getSender" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity android:name="p009o.ChequeRecyclerViewAdapter" screenOrientation="portrait"/>
+        <activity android:name="p009o.setState" screenOrientation="portrait"/>
+        <activity android:name="p009o.setListTable" screenOrientation="portrait"/>
+        <activity android:name="p009o.retainAll" screenOrientation="portrait"/>
+        <activity android:name="p009o.containsAll" screenOrientation="portrait"/>
+        <activity android:name="o.setValues$default" screenOrientation="portrait"/>
+        <activity android:name="p009o.toArray" screenOrientation="portrait"/>
+        <activity android:name="p009o.getBalanceData" screenOrientation="portrait"/>
+        <activity label="" android:name="p009o.setSpanStyle" screenOrientation="portrait"/>
+        <activity label="" android:name="p009o.createAndPopulateRelease" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017623" android:name="p009o.getPenaltyValue" screenOrientation="portrait"/>
+        <activity label="" android:name="p009o.isDetailAvailable" screenOrientation="portrait"/>
+        <activity label="@string/2131958465" android:name="o.TooltipManager$onTooltipClosingCallback" screenOrientation="portrait"/>
+        <activity label="@string/2131958465" android:name="p009o.AccessibilityUtils$focusViewModified$1" screenOrientation="portrait" windowSoftInputMode="adjustPan"/>
+        <activity android:name="p009o.setPaymentChecked" screenOrientation="portrait"/>
+        <activity android:name="p009o.access$getOpenCards$p" screenOrientation="portrait"/>
+        <activity label="" android:name="p009o.RepositoryModule" screenOrientation="portrait"/>
+        <activity android:name="o.TooltipView$2" screenOrientation="portrait"/>
+        <activity theme="@style/2132017638" android:name="p009o.setStaticDetail" launchMode="singleTask" screenOrientation="portrait"/>
+        <activity android:name="p009o.getInterestValue" screenOrientation="portrait"/>
+        <activity android:name="o.TooltipView$1" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="o.CardActivationFragmentPresenter$EffectuationOperationListener" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017491" android:name="p009o.getActivatedListSize" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017491" android:name="p009o.WalletTokensStatusEnum" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017491" android:name="p009o.sendAnalyticsEmptyState" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <service label="@string/2131952416" name="br.com.itau.keyboard.ImeService" permission="android.permission.BIND_INPUT_METHOD" exported="true" process="@string/2131956247">
+            <meta-data name="android.view.im" resource="@xml/2132213766"/>
+            <intent-filter>
+                <action android:name="android.view.InputMethod"/>
+            </intent-filter>
+        </service>
+        <provider name="o.getParcelQty" exported="false" authorities="com.itau.provider" grantUriPermissions="true">
+            <meta-data name="android.support.FILE_PROVIDER_PATHS" resource="@xml/2132213765"/>
+        </provider>
+        <activity android:name="p009o.isFutureHeader" screenOrientation="portrait"/>
+        <activity android:name="p009o.setEventCreditCard" screenOrientation="portrait"/>
+        <activity theme="@style/2132017186" label="@string/2131958894" android:name="p000br.com.itau.sdk.android.loyalty.core.presentation.rewardsprogram.RewardsProgramActivity" screenOrientation="portrait" configChanges="keyboardHidden|orientation"/>
+        <activity theme="@style/2132017186" label="@string/2131958903" android:name="p009o.access$setProgressAnimationLoad$p" screenOrientation="portrait" configChanges="keyboardHidden|orientation"/>
+        <activity theme="@style/2132017186" label="@string/2131954320" android:name="p000br.com.itau.sdk.android.loyalty.core.presentation.rewardsprogramtimeline.RewardsProgramTimelineFilterActivity" screenOrientation="portrait" configChanges="keyboardHidden|orientation"/>
+        <activity theme="@style/2132017180" label="@string/2131959883" android:name="p000br.com.itau.sdk.android.loyalty.core.presentation.rewardsprogram.CatalogActivity" screenOrientation="portrait" NOT_FOUND_0x2e="false"/>
+        <activity android:name="p009o.setRewardedVideoAdListener" windowSoftInputMode="adjustPan"/>
+        <activity theme="@style/2132017186" android:name="o.PaymentAnalyticsProcessor$Helper" screenOrientation="portrait" configChanges="keyboardHidden|orientation" windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan"/>
+        <activity theme="@style/2132017186" android:name="p009o.setTrackStateTags" screenOrientation="portrait" configChanges="keyboardHidden|orientation"/>
+        <activity theme="@style/2132017186" android:name="p009o.getWalletName" screenOrientation="portrait" configChanges="keyboardHidden|orientation" windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan"/>
+        <activity theme="@style/2132017186" android:name="p009o.getTags" screenOrientation="portrait" configChanges="keyboardHidden|orientation"/>
+        <activity theme="@style/2132017186" android:name="p009o.trackStateEmptyState" screenOrientation="portrait" configChanges="keyboardHidden|orientation"/>
+        <activity android:name="p009o.layoutDecorated"/>
+        <activity android:name="p009o.getDecoratedTop"/>
+        <activity android:name="p009o.getColor" screenOrientation="portrait" windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan"/>
+        <activity android:name="p009o.getCardActivationInner" screenOrientation="portrait" windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan"/>
+        <activity theme="@style/2132017186" label="@string/2131952326" android:name="p000br.com.itau.sdk.android.virtualcard.presentation.virtualcardrequest.VirtualCardSdkRequestActivity" screenOrientation="portrait" configChanges="keyboardHidden|orientation" windowSoftInputMode="adjustUnspecified|stateUnchanged|stateHidden|stateAlwaysHidden|adjustResize|adjustPan|adjustNothing" NOT_FOUND_0x2e="false"/>
+        <activity theme="@style/2132017186" label="@string/2131952326" android:name="p000br.com.itau.sdk.android.virtualcard.presentation.virtualcardgenerated.VirtualCardSdkGeneratedActivity" screenOrientation="portrait" configChanges="keyboardHidden|orientation" windowSoftInputMode="adjustUnspecified|stateUnchanged|stateHidden|stateAlwaysHidden|adjustResize|adjustPan|adjustNothing"/>
+        <activity theme="@style/2132017186" label="@string/2131952327" android:name="p000br.com.itau.sdk.android.virtualcard.presentation.virtualcardgenerating.VirtualCardSdkGeneratingActivity" screenOrientation="portrait" configChanges="keyboardHidden|orientation" windowSoftInputMode="adjustUnspecified|stateUnchanged|stateHidden|stateAlwaysHidden|adjustResize|adjustPan|adjustNothing" NOT_FOUND_0x2e="false"/>
+        <activity theme="@style/2132017186" label="@string/2131952327" android:name="p000br.com.itau.sdk.android.virtualcard.presentation.error.VirtualCardSdkErrorActivity" screenOrientation="portrait" NOT_FOUND_0x2e="false"/>
+        <activity theme="@style/2132017491" android:name="p009o.VirtualCardClient"/>
+        <activity theme="@style/2132017491" android:name="p009o.VirtualCardAnalyticsContract" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.trackStateErrorGeneric" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.trackStateLittleLimit" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017491" android:name="p009o.AccessibilityConstants" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.getImageFileName" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" label="@string/2131959890" android:name="p009o.setIsFirstAccess" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="o.VirtualCardAnalyticsProcessor$Helper" screenOrientation="portrait" windowSoftInputMode="adjustResize" parentActivityName="o.formatWithVirtualCardName"/>
+        <activity theme="@style/2132017491" android:name="p009o.VirtualCardLocalRepositoryImpl" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.getSharedPreferenceStorageManager" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.formatWithVirtualCardName" screenOrientation="portrait" windowSoftInputMode="adjustPan" parentActivityName="o.getSharedPreferenceStorageManager"/>
+        <activity theme="@style/2132017491" android:name="o.replaceValue$default" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017491" android:name="p009o.trackActionChooseOtherCard" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017491" android:name="o.AccessibilityConstants$Analytics" screenOrientation="portrait" windowSoftInputMode="adjustPan"/>
+        <activity theme="@style/2132017491" android:name="p009o.getDueDateFormatted" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.getTime" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.getCardCvv" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.trackActionClickFAQ" screenOrientation="portrait" noHistory="true"/>
+        <activity theme="@style/2132017491" android:name="p009o.trackActionClickCreateVirtualCard" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.valueDefaultToReplace$annotations" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.setCardDayDueDate" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.trackActionClickCopyDate" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.getCardHolder" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.getTransactionMap" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017491" android:name="p009o.isCheckSession" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017491" android:name="p009o.PaymentErrorPresenter" screenOrientation="portrait" windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize" parentActivityName="o.isCheckSession">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="o.isCheckSession"/>
+        </activity>
+        <activity theme="@style/2132017491" android:name="p009o.setKeyFormatLiteral" screenOrientation="portrait" windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize" parentActivityName="o.isCheckSession">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="o.isCheckSession"/>
+        </activity>
+        <activity theme="@style/2132017491" android:name="p009o.getImageResourseRes" screenOrientation="portrait" windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize" parentActivityName="o.isCheckSession">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="o.isCheckSession"/>
+        </activity>
+        <activity theme="@style/2132017491" android:name="p009o.forceAccessibilityFocusAfterPostDelayWithEvent" windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize" parentActivityName="o.isCheckSession">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="o.isCheckSession"/>
+        </activity>
+        <activity theme="@style/2132017491" android:name="p009o.titleRes" screenOrientation="portrait" windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize" parentActivityName="o.isCheckSession">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="o.isCheckSession"/>
+        </activity>
+        <activity theme="@style/2132017491" android:name="p009o.QrCodeParser" screenOrientation="portrait" windowSoftInputMode="adjustResize" parentActivityName="o.isCheckSession">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="o.isCheckSession"/>
+        </activity>
+        <activity theme="@style/2132017491" android:name="p009o.getArgumentScreenTitle" screenOrientation="portrait" windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize" parentActivityName="o.getTransactionMap">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="o.getTransactionMap"/>
+        </activity>
+        <activity theme="@style/2132017491" android:name="p009o.configTypeface"/>
+        <activity theme="@style/2132017491" label="@string/2131959885" android:name="p009o.measureViewHeight"/>
+        <activity theme="@style/2132017491" android:name="p009o.disableScroll"/>
+        <activity theme="@style/2132017491" android:name="o.PaymentWrapContentViewPager$WrapContentOnPageChangeListener"/>
+        <activity theme="@style/2132017491" android:name="p009o.getDescriptionWithoutFlag" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.logLevel$annotations" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017491" android:name="o.DefaultModuleKt$virtualCardSdkErrorModule$1$1" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" android:name="p009o.getKeys" screenOrientation="portrait"/>
+        <activity theme="@style/2132017491" label="" android:name="o.CardData$Creator" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017490" label="" android:name="p009o.setCardDueDateDay" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity android:name="p009o.sizePxX"/>
+        <activity android:name="p009o.roundedCornersRxRes"/>
+        <activity theme="@style/2132017491" android:name="o.CustomButtonLoading$CheckAnimationListener" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017491" android:name="p009o.drawView" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017491" android:name="o.CustomPaymentViewIndicator$2" screenOrientation="portrait" windowSoftInputMode="adjustResize"/>
+        <activity theme="@style/2132017874" android:name="p009o.getDrawAngles"/>
+        <activity android:name="p009o.start" configChanges="keyboardHidden|orientation" windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan"/>
+        <activity label="" android:name="p009o.setShowDivider" screenOrientation="portrait"/>
+        <activity theme="@style/2132017866" label="@string/2131952416" android:name="p009o.AdLoader" screenOrientation="portrait"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.check.CheckExtractActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.check.CheckCaptureActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.check.CheckWorkflowActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.ImageReviewActivity" screenOrientation="portrait" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.ProcessActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.bill.BillExtractActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.bill.BillCaptureActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.bill.BillWorkflowActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.p032id.IdExtractActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.p032id.IdCaptureActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.p032id.IdCaptureBackActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.p032id.IdWorkflowActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.passport.PassportExtractActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.passport.PassportCaptureActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.passport.PassportWorkflowActivity" screenOrientation="landscape" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.creditcard.CreditCardWorkflowActivity" configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.kofax.mobile.sdk.capture.creditcard.CardIoWrapperActivity"/>
+        <activity android:name="p050io.card.payment.CardIOActivity" configChanges="keyboardHidden|orientation"/>
+        <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+        <provider name="o.getMetaData" exported="false" authorities="com.itau.provider" grantUriPermissions="true">
+            <meta-data name="android.support.FILE_PROVIDER_PATHS" resource="@xml/2132213770"/>
+        </provider>
+        <activity theme="@style/2132017176" android:name="p009o.setLabelUseful" screenOrientation="portrait"/>
+        <activity theme="@style/2132017176" android:name="p009o.COSVisitorException" screenOrientation="portrait"/>
+        <activity theme="@style/2132017176" android:name="p009o.MissingImageReaderException" screenOrientation="portrait"/>
+        <activity theme="@style/2132017176" android:name="p009o.getOriginal" screenOrientation="portrait"/>
+        <activity theme="@style/2132017176" android:name="p009o.setPathData" taskAffinity="br.com.itau.feature.recarga.celular.app" screenOrientation="portrait" windowSoftInputMode="adjustPan" autoRemoveFromRecents="true"/>
+        <activity theme="@style/2132017176" android:name="p009o.removeOnPageChangeListener" taskAffinity="br.com.itau.feature.recarga.celular.app" screenOrientation="portrait" autoRemoveFromRecents="true"/>
+        <activity theme="@style/2132017176" android:name="p009o.getItemPosition" taskAffinity="br.com.itau.feature.recarga.celular.app" screenOrientation="portrait" autoRemoveFromRecents="true"/>
+        <activity theme="@style/2132017176" android:name="p009o.setPivotY" taskAffinity="br.com.itau.feature.recarga.celular.app" screenOrientation="portrait" autoRemoveFromRecents="true"/>
+        <activity theme="@style/2132017176" android:name="p009o.resetTouch" taskAffinity="br.com.itau.feature.recarga.celular.app" screenOrientation="portrait" windowSoftInputMode="adjustPan" autoRemoveFromRecents="true"/>
+        <activity theme="@style/2132017176" android:name="p009o.sortChildDrawingOrder" taskAffinity="br.com.itau.feature.recarga.celular.app" screenOrientation="portrait" autoRemoveFromRecents="true"/>
+        <activity theme="@style/2132017176" android:name="p009o.isDecorView" taskAffinity="br.com.itau.feature.recarga.celular.app" screenOrientation="portrait" autoRemoveFromRecents="true"/>
+        <service name="o.layoutDecoratedWithMargins" exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" resource="@drawable/2131231743"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" resource="@color/2131099893"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/2131953858"/>
+        <activity android:name="p009o.onViewRecycled" screenOrientation="portrait"/>
+        <activity android:name="p009o.onViewAttachedToWindow" screenOrientation="portrait"/>
+        <activity android:name="p009o.hasStableIds" screenOrientation="portrait"/>
+        <activity android:name="p009o.onViewDetachedFromWindow" screenOrientation="portrait"/>
+        <activity android:name="p009o.removeAllViews" screenOrientation="portrait"/>
+        <activity android:name="p009o.addDisappearingView" screenOrientation="portrait"/>
+        <activity android:name="p009o.startSmoothScroll" screenOrientation="portrait"/>
+        <activity android:name="p009o.removeViewAt" screenOrientation="portrait"/>
+        <activity android:name="p009o.getLayoutDirection" screenOrientation="portrait"/>
+        <activity android:name="p009o.access$onUpdateStatementSuccess" screenOrientation="portrait"/>
+        <activity android:name="p009o.access$getClearText$p" screenOrientation="portrait"/>
+        <activity android:name="p009o.setFragment" screenOrientation="portrait"/>
+        <activity android:name="p009o.access$getNewUserCategory$cp" screenOrientation="portrait"/>
+        <activity android:name="o.CategoriesListActivity$Companion" screenOrientation="portrait"/>
+        <activity android:name="p009o.getList" screenOrientation="portrait"/>
+        <activity android:name="p009o.getReleaseInternational" screenOrientation="portrait"/>
+        <activity android:name="p009o.getReleaseTypeDescription" screenOrientation="portrait"/>
+        <activity android:name="p009o.StatementCreditCard" screenOrientation="portrait"/>
+        <activity android:name="p009o.isPurchaseCanceled" screenOrientation="portrait"/>
+        <activity android:name="p009o.getReleaseAutorization" screenOrientation="portrait"/>
+        <activity android:name="p009o.getStabishmentLocation" screenOrientation="portrait"/>
+        <activity android:name="p009o.getWorkFieldCode" screenOrientation="portrait"/>
+        <activity android:name="p009o.CategoriesListActivity$createCat$2" screenOrientation="portrait"/>
+        <activity android:name="p009o.CategoriesListActivity$createCat$1" screenOrientation="portrait"/>
+        <activity android:name="p009o.access$getScope$p" screenOrientation="portrait"/>
+        <activity android:name="p000br.com.itau.ittimeline.p001ui.timeline.DetailCheckingAccountActivity" screenOrientation="portrait"/>
+        <activity android:name="p000br.com.itau.ittimeline.p001ui.timeline.DetailCreditCardActivity" screenOrientation="portrait"/>
+        <activity android:name="p000br.com.itau.ittimeline.p001ui.timeline.DetailReturnTransactionActivity" screenOrientation="portrait"/>
+        <activity android:name="p000br.com.itau.ittimeline.p001ui.categories.CategoriesListActivity" screenOrientation="portrait"/>
+        <activity android:name="p000br.com.itau.ittimeline.p001ui.categories.CreateCategoryActivity" screenOrientation="portrait" windowSoftInputMode="adjustPan"/>
+        <activity android:name="p000br.com.itau.ittimeline.p001ui.categories.ManageCategoriesActivity" screenOrientation="portrait"/>
+        <activity android:name="p000br.com.itau.ittimeline.p001ui.timeline.TimelinePixActivity" screenOrientation="portrait"/>
+        <activity android:name="p000br.com.itau.ittimeline.p001ui.filters.AllFiltersActivity" screenOrientation="portrait" windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="p000br.com.itau.ittimeline.p001ui.cochmark.CoachMarkActivity" screenOrientation="portrait"/>
+        <activity android:name="p000br.com.itau.ittimeline.p001ui.cochmark.CoachMarkPixActivity" screenOrientation="portrait"/>
+        <activity theme="@style/2132017176" android:name="p009o.iSuccessful" screenOrientation="portrait"/>
+        <activity theme="@style/2132017176" android:name="p009o.getEntrancePriority" screenOrientation="portrait" windowSoftInputMode="adjustPan"/>
+        <activity theme="@style/2132017176" android:name="p009o.getIcone" screenOrientation="portrait" windowSoftInputMode="adjustPan"/>
+        <activity theme="@style/2132017176" android:name="p009o.ITCategoryMetadata" screenOrientation="portrait"/>
+        <provider name="o.setAccountID" exported="false" authorities="com.itau.provider" grantUriPermissions="true">
+            <meta-data name="android.support.FILE_PROVIDER_PATHS" resource="@xml/2132213770"/>
+        </provider>
+        <service name="o.ConfigurationException" enabled="true"/>
+        <service name="o.ContextIDCache" enabled="true"/>
+        <activity android:name="p009o.bind"/>
+        <activity android:name="p009o.isUserCardOwner"/>
+        <activity theme="@style/2132017186" android:name="p000br.com.itau.sdk.android.payment.core.presentation.cardlist.CardListActivity" screenOrientation="portrait" configChanges="keyboardHidden|orientation"/>
+        <activity theme="@style/2132017681" android:name="p000br.com.itau.sdk.android.payment.core.presentation.activation.cardactivation.CardActivationActivity" configChanges="keyboardHidden|orientation"/>
+        <activity theme="@style/2132017681" android:name="p000br.com.itau.sdk.android.payment.core.presentation.activation.cardactivation.singlecard.CardActivationSingleActivity" configChanges="keyboardHidden|orientation"/>
+        <activity theme="@style/2132017681" android:name="p000br.com.itau.sdk.android.payment.core.presentation.activation.cardactivation.multiplecards.CardActivationMultipleActivity" configChanges="keyboardHidden|orientation"/>
+        <activity theme="@style/2132017186" android:name="p000br.com.itau.sdk.android.payment.core.presentation.activation.cardactivationresult.CardActivationResultActivity" screenOrientation="portrait" configChanges="keyboardHidden|orientation"/>
+        <activity theme="@style/2132017186" android:name="p000br.com.itau.sdk.android.payment.core.presentation.error.PaymentErrorActivity" screenOrientation="portrait" configChanges="keyboardHidden|orientation"/>
+        <activity android:name="p000br.com.itau.sdk.android.payment.core.presentation.cardlist.menu.CardListMenuActivity" screenOrientation="portrait" configChanges="keyboardHidden|orientation"/>
+        <activity android:name="p000br.com.itau.sdk.android.payment.core.presentation.incentive.PaymentIncentiveActivity" screenOrientation="portrait" configChanges="keyboardHidden|orientation"/>
+        <receiver name="br.com.itau.security.did.WeakDIDReceiver" permission="br.com.itau.security.WDID" exported="true">
+            <intent-filter>
+                <action android:name="br.com.itau.security.did.REQUEST_ID"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="p009o.onWindowAttributesChanged"/>
+        <activity theme="@style/2132017427" android:name="o.Constants$RemoteBundle" screenOrientation="landscape"/>
+        <activity theme="@style/2132017427" android:name="o.Constants$VirtualCardBusiness$Companion" screenOrientation="landscape"/>
+        <activity theme="@style/2132017427" android:name="p009o.getDateByPattern" screenOrientation="landscape"/>
+        <activity theme="@style/2132017668" android:name="p000br.com.itau.sdk.android.feedback.p011ui.feedback.FeedbackAnalyticsActivity"/>
+        <activity theme="@style/2132018140" android:name="com.facebook.FacebookActivity" configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <activity android:name="p009o.gravityToArrowDirection"/>
+        <activity android:name="com.facebook.CustomTabActivity"/>
+        <receiver name="br.com.itau.security.saph.receiver.Receiver" permission="android.permission.BROADCAST_SMS" enabled="false" exported="true">
+            <intent-filter priority="2147483647">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <provider name="o.isPasswordInputType" exported="false" authorities="com.itau.MarketingInitProvider"/>
+        <provider name="o.getFloatingLabelPadding" exported="false" authorities="com.itau.FacebookInitProvider"/>
+        <receiver name="o.Density" exported="false">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity" exported="true" noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.com.itau"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <service name="com.google.firebase.messaging.FirebaseMessagingService" exported="false">
+            <intent-filter priority="-4">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver name="com.google.android.gms.analytics.AnalyticsReceiver" enabled="true" exported="false"/>
+        <service name="com.google.android.gms.analytics.AnalyticsService" enabled="true" exported="false"/>
+        <service name="com.google.android.gms.analytics.AnalyticsJobService" permission="android.permission.BIND_JOB_SERVICE" enabled="true" exported="false"/>
+        <service name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery" exported="false">
+            <meta-data name="backend:com.google.android.datatransport.cct.CctBackendFactory" value="cct"/>
+        </service>
+        <service name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" permission="android.permission.BIND_JOB_SERVICE" exported="false"/>
+        <receiver name="o.setOfflineModeI" exported="false"/>
+        <provider name="com.google.firebase.provider.FirebaseInitProvider" exported="false" authorities="com.itau.firebaseinitprovider" initOrder="100" NOT_FOUND_0x2f="true"/>
+        <service name="o.schedule" exported="false" NOT_FOUND_0x2f="true">
+            <meta-data name="com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider name="o.tryExecuteRunnable" exported="false" authorities="com.itau.mlkitinitprovider" initOrder="99"/>
+        <activity theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" exported="false" excludeFromRecents="true"/>
+        <service name="com.google.android.gms.auth.api.signin.RevocationBoundService" permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" exported="true"/>
+        <activity theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" exported="false"/>
+        <activity theme="@style/Theme.Translucent" android:name="com.google.android.gms.ads.AdActivity" exported="false" configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        <provider name="com.google.android.gms.ads.MobileAdsInitProvider" exported="false" authorities="com.itau.mobileadsinitprovider" initOrder="100"/>
+        <provider name="o.setStatusBarBackgroundColor" exported="false" multiprocess="true" authorities="com.itau.lifecycle-process"/>
+        <activity theme="@style/2132017679" label="" android:name="p009o.setAdapter" launchMode="singleTask" screenOrientation="portrait"/>
+        <activity theme="@style/2132017866" label="" android:name="android.sdk.itau.com.br.passwordrecovery.ui.instrumentedTestUtils.BaseInstrumentedActivity" screenOrientation="portrait"/>
+        <activity theme="@style/2132017679" label="" android:name="p009o.setTheme" screenOrientation="portrait"/>
+        <activity theme="@style/2132017679" label="" android:name="p009o.setNeutralButtonIcon" screenOrientation="portrait"/>
+        <activity theme="@style/2132017886" android:name="p009o.AudioAttributesImplApi21Parcelizer" screenOrientation="portrait"/>
+        <activity android:name="p050io.card.payment.DataEntryActivity"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:value="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

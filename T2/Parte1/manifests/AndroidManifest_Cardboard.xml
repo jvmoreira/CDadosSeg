@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="190123204" android:versionName="1.9" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.google.samples.apps.cardboarddemo" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="23"/>
+    <uses-feature android:glEsVersion="20000" android:required="true"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.software.vr.mode" android:required="false"/>
+    <uses-feature android:name="android.hardware.vr.high_performance" android:required="false"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true"/>
+    <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="true"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen.multitouch.distinct" android:required="false"/>
+    <application android:theme="@style/AppTheme" android:label="@string/app_name_prod" android:icon="@mipmap/app_icon" android:name="com.google.p003vr.cardboard.paperscope.carton.CartonApplication" android:debuggable="false" android:largeHeap="true" android:supportsRtl="true" android:banner="@drawable/app_banner" android:isGame="false" android:resizeableActivity="false">
+        <activity android:theme="@style/Home2DV2Theme" android:name="com.google.p003vr.cardboard.paperscope.carton.Home2Dv2" android:launchMode="singleTop" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/QrCodeScannerTheme" android:label="@string/register_headset_button" android:name="com.google.p003vr.libraries.qrcode.QrCodeScanner" android:exported="true" android:screenOrientation="portrait" android:configChanges="orientation|screenSize" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/VrActivityTheme" android:name="com.google.p003vr.app.CardboardPaperscope.C0090CardboardPaperscope" android:stateNotNeeded="true" android:launchMode="singleTask" android:screenOrientation="landscape" android:configChanges="keyboardHidden|navigation|orientation|uiMode|screenSize" android:resizeableActivity="false" android:enableVrMode="@string/gvr_vr_mode_component">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="com.google.intent.category.CARDBOARD"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/VrActivityTheme" android:name="com.google.p003vr.cardboard.paperscope.maps.MapsDemo" android:exported="false" android:screenOrientation="landscape" android:configChanges="keyboardHidden|orientation|screenSize" android:resizeableActivity="false" android:enableVrMode="@string/gvr_vr_mode_component">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="com.google.intent.category.CARDBOARD"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/VrActivityTheme" android:name="com.google.p003vr.cardboard.paperscope.myvideos.MyVideosDemo" android:exported="false" android:screenOrientation="landscape" android:configChanges="keyboardHidden|orientation|screenSize" android:resizeableActivity="false" android:enableVrMode="@string/gvr_vr_mode_component">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="com.google.intent.category.CARDBOARD"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/VrActivityTheme" android:name="com.google.p003vr.cardboard.paperscope.objects.ObjectsDemo" android:exported="false" android:screenOrientation="landscape" android:configChanges="keyboardHidden|orientation|screenSize" android:resizeableActivity="false" android:enableVrMode="@string/gvr_vr_mode_component">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="com.google.intent.category.CARDBOARD"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/VrActivityTheme" android:name="com.google.p003vr.cardboard.paperscope.photosphere.PhotoSphereDemo" android:exported="false" android:screenOrientation="landscape" android:configChanges="keyboardHidden|orientation|screenSize" android:resizeableActivity="false" android:enableVrMode="@string/gvr_vr_mode_component">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="com.google.intent.category.CARDBOARD"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/VrActivityTheme" android:label="@string/app_name" android:name="com.google.unity.GoogleUnityActivity" android:launchMode="singleTask" android:screenOrientation="sensorLandscape" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" android:resizeableActivity="false" android:enableVrMode="@string/gvr_vr_mode_component">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="com.google.intent.category.CARDBOARD"/>
+            </intent-filter>
+            <meta-data android:name="unityplayer.UnityActivity" android:value="true"/>
+        </activity>
+        <meta-data android:name="IMMERSIVE_MODE" android:value="true"/>
+        <activity android:theme="@style/MagicWindowWelcomeTheme" android:name="com.google.p003vr.cardboard.paperscope.carton.MagicWindowWelcome" android:exported="false" android:launchMode="singleTop" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/TransitionViewTheme" android:name="com.google.p003vr.cardboard.paperscope.carton.SizzleReelTransitionActivity" android:exported="false" android:launchMode="singleTop" android:screenOrientation="portrait"/>
+        <activity android:label="@string/headset_detection_activity_title" android:name="com.google.p003vr.cardboard.paperscope.carton.HeadsetDetectionActivity">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="cardboard"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http" android:host="google.com" android:path="/cardboard/cfg"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http" android:host="google.com" android:path="/cardboard/cfg"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/SettingsTheme" android:label="@string/settings_activity_title" android:name="com.google.p003vr.cardboard.paperscope.carton.Settings" android:launchMode="singleTop" android:parentActivityName="com.google.vr.cardboard.paperscope.carton.Home2Dv2">
+            <intent-filter android:priority="-100">
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="com.google.vrtoolkit.cardboard.CONFIGURE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/SettingsTheme" android:label="@string/about" android:name="com.google.p003vr.cardboard.paperscope.carton.About" android:parentActivityName="com.google.vr.cardboard.paperscope.carton.Home2Dv2"/>
+        <activity android:theme="@style/SettingsTheme" android:label="@string/notices" android:name="com.google.p003vr.cardboard.paperscope.carton.Notices" android:exported="false" android:parentActivityName="com.google.vr.cardboard.paperscope.carton.About"/>
+        <activity android:name="com.google.p003vr.cardboard.paperscope.carton.Launcher3D" android:exported="false" android:screenOrientation="landscape" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:theme="@style/Theme.AppCompat.Light" android:label="@string/preferences_license_title" android:name="com.google.android.libraries.social.licenses.LicenseMenuActivity" android:exported="true"/>
+        <activity android:theme="@style/Theme.AppCompat.Light" android:label="@string/preferences_license_title" android:name="com.google.android.libraries.social.licenses.LicenseActivity" android:exported="false"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.firebase.iid.FirebaseInstanceIdService" android:exported="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+    </application>
+</manifest>

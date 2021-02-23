@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="91596602" android:versionName="1.30.58" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.yahoo.mobile.client.android.weather" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29"/>
+    <permission android:name="com.yahoo.snp.android.permission.ACCESS_PUSHAGENT" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.yahoo.mobile.client.android.weather.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="com.yahoo.snp.android.permission.ACCESS_PUSHAGENT"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-feature android:glEsVersion="20000" android:required="true"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission-sdk-23 android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <permission android:name="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" android:maxSdkVersion="22"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" android:maxSdkVersion="22"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" android:maxSdkVersion="21"/>
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET"/>
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-feature android:name="android.hardware.camera.ar" android:required="false"/>
+    <uses-permission-sdk-23 android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission-sdk-23 android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:label="@string/weather_icon_name" android:icon="@mipmap/icon" android:name="com.yahoo.mobile.client.android.weather.WeatherApplication" android:allowBackup="false" android:hardwareAccelerated="true" android:largeHeap="true" android:fullBackupContent="@xml/phoenix_backup_rules" android:usesCleartextTraffic="false" android:networkSecurityConfig="@xml/network_security_config" android:appComponentFactory="androidx.core.app.CoreComponentFactory">
+        <meta-data android:name="asset_statements" android:resource="@string/asset_statements"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/google_maps_api_key"/>
+        <activity android:theme="@style/YahooFullscreen" android:name="com.yahoo.mobile.client.android.weather.p408ui.WeatherMainActivity" android:launchMode="singleTop" android:screenOrientation="sensorPortrait" android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="yweather"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="weather.yahoo.com"/>
+                <data android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/YahooFullscreen" android:name="com.yahoo.mobile.client.android.weather.p408ui.alert.AlertDetailsActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/YahooFullscreen" android:name="com.yahoo.mobile.client.android.weather.p408ui.location.LocationSearchFragmentActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/YahooFullscreen" android:name="com.yahoo.mobile.client.android.weather.p408ui.onboarding.OnBoardingScreenActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/WeatherSettings" android:label="@string/edit_location" android:name="com.yahoo.mobile.client.android.weather.p408ui.location.LocationEditActivity" android:screenOrientation="sensorPortrait" android:parentActivityName="com.yahoo.mobile.client.android.weather.ui.WeatherMainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.WeatherMainActivity"/>
+        </activity>
+        <activity android:theme="@style/WeatherSettings" android:label="@string/settings" android:name="com.yahoo.mobile.client.android.weather.p408ui.SettingsActivity" android:launchMode="singleTop" android:screenOrientation="sensorPortrait" android:parentActivityName="com.yahoo.mobile.client.android.weather.ui.WeatherMainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.WeatherMainActivity"/>
+        </activity>
+        <activity android:theme="@style/WeatherSettings" android:label="@string/settings_notification_title" android:name="com.yahoo.mobile.client.android.weather.p408ui.NotificationSettingsActivity" android:launchMode="singleTop" android:screenOrientation="sensorPortrait" android:parentActivityName="com.yahoo.mobile.client.android.weather.ui.SettingsActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.SettingsActivity"/>
+        </activity>
+        <activity android:theme="@style/WeatherSettings" android:label="@string/weather_data_label" android:name="com.yahoo.mobile.client.android.weather.p408ui.DataLimitSettingsActivity" android:launchMode="singleTop" android:screenOrientation="sensorPortrait" android:parentActivityName="com.yahoo.mobile.client.android.weather.ui.SettingsActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.SettingsActivity"/>
+        </activity>
+        <activity android:theme="@style/WeatherSettings" android:label="@string/credits" android:name="com.yahoo.mobile.client.android.weather.p408ui.CreditsActivity" android:screenOrientation="sensorPortrait" android:parentActivityName="com.yahoo.mobile.client.android.weather.ui.WeatherMainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.WeatherMainActivity"/>
+        </activity>
+        <activity android:theme="@style/WeatherSettings" android:label="@string/news_row_text" android:name="com.yahoo.mobile.client.android.weather.p408ui.NewsActivity" android:screenOrientation="sensorPortrait" android:parentActivityName="com.yahoo.mobile.client.android.weather.ui.WeatherMainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.WeatherMainActivity"/>
+        </activity>
+        <activity android:theme="@style/WeatherSettings" android:label="@string/setting_severe_notification_title" android:name="com.yahoo.mobile.client.android.weather.p408ui.alert.SevereWeatherAlertsActivity" android:screenOrientation="sensorPortrait" android:parentActivityName="com.yahoo.mobile.client.android.weather.ui.SettingsActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.SettingsActivity"/>
+        </activity>
+        <activity android:theme="@style/WeatherSettings" android:label="@string/daily_notification_title_label" android:name="com.yahoo.mobile.client.android.weather.p408ui.DailyNotificationSettingActivity" android:launchMode="singleTop" android:screenOrientation="sensorPortrait" android:parentActivityName="com.yahoo.mobile.client.android.weather.ui.NotificationSettingsActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.NotificationSettingsActivity"/>
+        </activity>
+        <activity android:theme="@style/WeatherSettings" android:label="@string/notification_label" android:name="com.yahoo.mobile.client.android.weather.p408ui.onboarding.OngoingNotificationActivity" android:launchMode="singleTop" android:screenOrientation="sensorPortrait" android:parentActivityName="com.yahoo.mobile.client.android.weather.ui.NotificationSettingsActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.NotificationSettingsActivity"/>
+        </activity>
+        <activity android:theme="@style/TransparentActivityTheme" android:name="com.yahoo.mobile.client.android.weather.p408ui.AddCityNoUiActivity" android:launchMode="singleTop" android:screenOrientation="sensorPortrait" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/WeatherSettings" android:label="@string/debug" android:name="com.yahoo.mobile.client.android.weather.p408ui.DebugActivity" android:screenOrientation="sensorPortrait" android:parentActivityName="com.yahoo.mobile.client.android.weather.ui.WeatherMainActivity"/>
+        <activity android:theme="@style/YahooFullscreen" android:name="com.yahoo.mobile.client.android.weather.p408ui.map.MapActivity"/>
+        <activity android:theme="@style/Theme.Phoenix.Default" android:name="com.oath.mobile.platform.phoenix.core.RedirectUriReceiverActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="com.yahoo.mobile.client.android.weather" android:host="phoenix" android:pathPrefix="/callback_auth"/>
+            </intent-filter>
+        </activity>
+        <receiver android:label="@string/widget_2_2_name" android:icon="@drawable/icon" android:name="com.yahoo.mobile.client.android.weather.WeatherWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_weather"/>
+        </receiver>
+        <receiver android:label="@string/widget_4_2_name" android:icon="@drawable/icon" android:name="com.yahoo.mobile.client.android.weather.WeatherWidget4x2Provider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_weather_4x2"/>
+        </receiver>
+        <receiver android:label="@string/widget_4_2_big_clock_name" android:icon="@drawable/icon" android:name="com.yahoo.mobile.client.android.weather.WeatherWidget4x2ProviderBigClock">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_weather_4x2_big_clock"/>
+        </receiver>
+        <receiver android:label="@string/widget_4_2_big_clock_current_location_name" android:icon="@drawable/icon" android:name="com.yahoo.mobile.client.android.weather.WeatherWidget4x2ProviderCurrentLocation">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_weather_4x2_current_location"/>
+        </receiver>
+        <receiver android:label="@string/widget_hourly_name" android:icon="@drawable/icon" android:name="com.yahoo.mobile.client.android.weather.WeatherWidgetHourlyProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_weather_hourly"/>
+        </receiver>
+        <receiver android:label="@string/widget_4_1_name" android:icon="@drawable/icon" android:name="com.yahoo.mobile.client.android.weather.WeatherWidget4x1Provider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_weather_4x1"/>
+        </receiver>
+        <receiver android:label="@string/widget_small_name" android:icon="@drawable/icon" android:name="com.yahoo.mobile.client.android.weather.WeatherWidgetSmallProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_weather_small"/>
+        </receiver>
+        <activity android:theme="@style/WidgetSettings" android:name="com.yahoo.mobile.client.android.weather.WeatherWidgetConfigure" android:screenOrientation="sensorPortrait" android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WIDGET_IMAGE_READY"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_UPDATED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_FORECAST_CHANGED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_ALERT_CHANGED"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/WidgetSettings" android:name="com.yahoo.mobile.client.android.weather.WeatherWidget4x2Configure" android:screenOrientation="sensorPortrait" android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WIDGET_IMAGE_READY"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_UPDATED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_FORECAST_CHANGED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_ALERT_CHANGED"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/WidgetSettings" android:name="com.yahoo.mobile.client.android.weather.WeatherWidget4x2ConfigureBigClock" android:screenOrientation="sensorPortrait" android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WIDGET_IMAGE_READY"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_UPDATED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_FORECAST_CHANGED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_ALERT_CHANGED"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/WidgetSettings" android:name="com.yahoo.mobile.client.android.weather.WeatherWidgetHourlyConfigure" android:screenOrientation="sensorPortrait" android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WIDGET_IMAGE_READY"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_UPDATED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_FORECAST_CHANGED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_ALERT_CHANGED"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/WidgetSettings" android:name="com.yahoo.mobile.client.android.weather.WeatherWidget4x1Configure" android:screenOrientation="sensorPortrait" android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WIDGET_IMAGE_READY"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_UPDATED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_FORECAST_CHANGED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_ALERT_CHANGED"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/WidgetSettings" android:name="com.yahoo.mobile.client.android.weather.WeatherWidgetSmallConfigure" android:screenOrientation="sensorPortrait" android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WIDGET_IMAGE_READY"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_UPDATED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_FORECAST_CHANGED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_ALERT_CHANGED"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/YahooFullscreen" android:name="com.yahoo.mobile.client.android.weather.p408ui.location.BackgroundLocationGatheringPermissionPromptActivity" android:screenOrientation="userPortrait"/>
+        <receiver android:name="com.yahoo.mobile.client.android.weather.receivers.NotificationReceiver" android:permission="com.yahoo.snp.android.permission.ACCESS_PUSHAGENT">
+            <intent-filter>
+                <action android:name="com.yahoo.snp.android.notif.com.yahoo.mobile.client.android.weather"/>
+                <category android:name="com.yahoo.snp.android.NOTIFICATION_SERVICE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_FORECAST_CHANGED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_ALERT_CHANGED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WIDGET_IMAGE_READY"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.yahoo.mobile.client.android.weather.service.NotificationService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.yahoo.mobile.client.android.weather.receivers.CurrentLocationChangedReceiver">
+            <intent-filter>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.ACTION_CURRENT_LOCATION_CHANGED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.yahoo.mobile.client.android.weather.service.CurrentLocationChangedService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.yahoo.mobile.client.android.weather.service.DailyNotificationService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.yahoo.mobile.client.android.weather.service.DailyNotificationManager$OnTimeChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.yahoo.mobile.client.android.weather.receivers.DailyNotificationReceiver"/>
+        <receiver android:name="com.yahoo.mobile.client.android.weather.receivers.NotificationDismissListener" android:exported="false"/>
+        <provider android:label="@string/weather_content_provider_label" android:name="com.yahoo.mobile.client.android.weather.provider.WeatherProvider" android:exported="true" android:authorities="com.yahoo.mobile.client.android.weather.provider.Weather" android:syncable="true" android:grantUriPermissions="true" android:allowBackup="false"/>
+        <receiver android:name="com.yahoo.mobile.client.android.weathersdk.service.WeatherServiceReceiver">
+            <intent-filter>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_WEATHER_FORECAST_CHANGED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.partner.action.ACTION_ALERT_UPDATED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_LOCATION_ADDED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.partner.action.ACTION_LOCATION_REMOVED"/>
+                <action android:name="android.net.conn.BACKGROUND_DATA_SETTING_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.yahoo.mobile.client.android.weathersdk.service.WidgetAlarmReceiver">
+            <intent-filter>
+                <action android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_START_WIDGET_ALARM"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.yahoo.mobile.client.android.weathersdk.service.WidgetUpdateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="com.yahoo.mobile.client.android.weathersdk.action.ACTION_UPDATE_WIDGET_TIME"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.yahoo.mobile.client.android.weathersdk.service.LocationService"/>
+        <service android:name="com.yahoo.mobile.client.android.weathersdk.job.LocationJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.yahoo.mobile.client.android.weathersdk.service.LocationIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.yahoo.mobile.client.android.weathersdk.service.GeofenceIntentBroadcastReceiver"/>
+        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:name="com.yahoo.nfx.weathereffects.WFXActivity" android:launchMode="singleTask" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation"/>
+        <activity android:theme="@style/AppTheme.NoTitle" android:label="@string/title_activity_playable_moments" android:name="com.oath.mobile.ads.sponsoredmoments.p164ui.component.PlayableMomentsActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Phoenix.NonTransparent" android:name="com.oath.mobile.platform.phoenix.core.AccountSwitcherActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Phoenix.AppCompatDialog" android:name="com.oath.mobile.platform.phoenix.core.AccountKeyNotificationActivity" android:taskAffinity="" android:excludeFromRecents="true" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.NonTransparent" android:name="com.oath.mobile.platform.phoenix.core.AccountKeyActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateHidden"/>
+        <receiver android:name="com.oath.mobile.platform.phoenix.core.NotificationReceiver">
+            <intent-filter>
+                <action android:name="com.yahoo.android.account.auth.yes"/>
+                <action android:name="com.yahoo.android.account.auth.no"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.oath.mobile.platform.phoenix.core.AccountKeyAuthService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:theme="@style/Theme.QR" android:name="com.oath.mobile.platform.phoenix.core.QRWebviewActivity" android:launchMode="singleTask"/>
+        <activity android:theme="@style/Theme.QRScanner" android:name="com.oath.mobile.platform.phoenix.core.QrScannerActivity"/>
+        <activity android:name="com.oath.mobile.platform.phoenix.core.QRInternalLinkActivity"/>
+        <activity android:name="com.oath.mobile.platform.phoenix.core.QRExternalLinkActivity" android:launchMode="singleTask">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="login.yahoo.com" android:path="/qr/session"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.Default" android:name="com.oath.mobile.platform.phoenix.core.AuthActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.Default" android:name="com.oath.mobile.platform.phoenix.core.TermsAndPrivacyActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.NonTransparent" android:name="com.oath.mobile.platform.phoenix.core.ManageAccountsActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.NonTransparent" android:name="com.oath.mobile.platform.phoenix.core.AccountPickerActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.Default" android:name="com.oath.mobile.platform.phoenix.core.ProgressiveRegActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.Default" android:name="com.oath.mobile.platform.phoenix.core.QuickRegisterAccountActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.NonTransparent" android:name="com.oath.mobile.platform.phoenix.core.TrapActivity" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.NonTransparent" android:name="com.oath.mobile.platform.phoenix.core.SecurityActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.NonTransparent" android:name="com.oath.mobile.platform.phoenix.core.AppLockActivity" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.NonTransparent" android:name="com.oath.mobile.platform.phoenix.core.AccountInfoActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.Default" android:name="com.oath.mobile.platform.phoenix.core.RegisterPhoneAccountActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
+            <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        </activity>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.NonTransparent" android:name="com.oath.mobile.platform.phoenix.core.MemberCenterActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.Default" android:name="com.oath.mobile.platform.phoenix.core.AuthWebViewActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Phoenix.DayNight.NonTransparent" android:name="com.oath.mobile.platform.phoenix.core.CommChannelActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <service android:name="com.oath.mobile.platform.phoenix.core.AuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <provider android:name="com.oath.mobile.platform.phoenix.core.PhoenixFileProvider" android:exported="false" android:authorities="com.yahoo.mobile.client.android.weather.account.file.provider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/fileprovider"/>
+        </provider>
+        <receiver android:name="com.oath.mobile.platform.phoenix.core.AccountDataReceiver" android:permission="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP" android:exported="true">
+            <intent-filter>
+                <action android:name="com.yahoo.android.account.cookie"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.oath.mobile.platform.phoenix.core.SmsVerificationService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
+        <service android:name="com.yahoo.android.yconfig.OptInService" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="com.yahoo.android.yconfig.optin_message"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.yahoo.mobile.client.share.ymobileminibrowser.YMobileMiniBrowserActivity" android:configChanges="orientation|screenSize"/>
+        <provider android:name="androidx.core.content.FileProvider" android:exported="false" android:authorities="com.yahoo.mobile.client.android.weather.provider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:name="com.yahoo.mobile.client.android.libs.feedback.UserFeedbackActivity" android:configChanges="keyboardHidden|screenSize" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.flurry.android.ymadlite.widget.video.view.FullScreenVideoAdPlayerActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.yahoo.mobile.client.android.yvideosdk.p410ui.presentation.FullscreenVideoActivity" android:exported="false" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.yahoo.mobile.client.android.yvideosdk.p410ui.lightbox.LightboxActivity" android:exported="false" android:taskAffinity="com.yahoo.mobile.client.android.yvideosdk.pip" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:resizeableActivity="true" android:supportsPictureInPicture="true"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.yahoo.mobile.client.android.yvideosdk.p410ui.extension.LightBoxActivity" android:exported="false" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        <meta-data android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME" android:value="com.yahoo.mobile.client.android.yvideosdk.cast.CastOptionsProvider"/>
+        <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="true"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.verizondigitalmedia.mobile.client.android.player.p176ui.FullscreenVideoActivity" android:configChanges="orientation|screenSize"/>
+        <activity android:name="com.verizondigitalmedia.mobile.client.android.nielsen.p172ui.NielsenOptOutWebViewActivity"/>
+        <receiver android:name="com.yahoo.mobile.client.android.snoopy.partner.InstallReferrerBroadcastReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.mapquest.observer.wake.ObserverWakeManager" android:exported="true">
+            <intent-filter>
+                <action android:name="com.mapquest.observer.wake.ALARM"/>
+                <action android:name="com.mapquest.observer.wake.LOCATION"/>
+                <action android:name="com.mapquest.observer.wake.LEADER"/>
+                <action android:name="com.mapquest.observer.wake.ACTIVITY_TRANSITION"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver" android:exported="false"/>
+        <service android:name="com.google.android.gms.cast.framework.media.MediaNotificationService" android:exported="false"/>
+        <service android:name="com.google.android.gms.cast.framework.ReconnectionService" android:exported="false"/>
+        <meta-data android:name="com.google.ar.core" android:value="optional"/>
+        <activity android:theme="@style/Oath__FullscreenTheme" android:name="com.ryot.arsdk.p169ui.ExperienceActivity" android:exported="true" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:resizeableActivity="false"/>
+        <activity android:theme="@style/Oath__AppTheme" android:name="com.ryot.arsdk.p169ui.LoadingAndPermissionsActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/Oath__AppTheme" android:name="com.ryot.arsdk.ui.LoadingExperienceActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/Oath__AppTheme" android:name="com.ryot.arsdk.p169ui.DependentLoadingExperienceActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <provider android:name="com.ryot.arsdk.util.ARSDKFileProvider" android:exported="false" android:authorities="com.yahoo.mobile.client.android.weather.media_fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <provider android:name="com.ryot.arsdk.util.ARSDKWarmupContentProvider" android:enabled="true" android:exported="false" android:authorities="com.yahoo.mobile.client.android.weather.ARSDKInitProvider"/>
+        <receiver android:name="com.ryot.arsdk.p169ui.ShareReceiver" android:exported="false"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.flurry.android.FlurryFullscreenTakeoverActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.flurry.android.FlurryTileAdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.flurry.android.FlurryBrowserActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        <receiver android:name="com.google.android.gms.analytics.AnalyticsReceiver" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.analytics.AnalyticsService" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:exported="false" android:excludeFromRecents="true"/>
+        <service android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:exported="true"/>
+        <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="false">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.firebase.iid.FirebaseInstanceIdService" android:exported="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <service android:name="com.mapquest.observer.wake.core.triggers.jobservices.ObBatteryStatsResetTriggerJob" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true"/>
+        <activity android:theme="@style/Theme.Translucent" android:name="com.google.android.gms.ads.AdActivity" android:exported="false" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.yahoo.mobile.client.android.weather.firebaseinitprovider" android:initOrder="100"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="net.openid.appauth.AuthorizationManagementActivity" android:exported="false" android:launchMode="singleTask"/>
+        <activity android:name="net.openid.appauth.RedirectUriReceiverActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="com.oath.mobile.phoenix.placeholder"/>
+            </intent-filter>
+        </activity>
+        <provider android:name="androidx.work.impl.WorkManagerInitializer" android:exported="false" android:multiprocess="true" android:authorities="com.yahoo.mobile.client.android.weather.workmanager-init" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.background.systemalarm.SystemAlarmService" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.foreground.SystemForegroundService" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver" android:enabled="true" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.flurry.android.marketing.messaging.FCM.FlurryMessageListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.flurry.android.marketing.messaging.FCM.FlurryInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.flurry.android.marketing.messaging.notification.NotificationCancelledReceiver" android:enabled="true" android:exported="false"/>
+        <receiver android:name="com.flurry.android.marketing.messaging.notification.NotificationClickedReceiver" android:enabled="true" android:exported="false"/>
+        <provider android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer" android:exported="false" android:multiprocess="true" android:authorities="com.yahoo.mobile.client.android.weather.lifecycle-process"/>
+        <service android:name="androidx.room.MultiInstanceInvalidationService" android:exported="false"/>
+        <meta-data android:name="com.google.ar.core.min_apk_version" android:value="200317000"/>
+        <activity android:theme="@style/Theme.Material.Light.Dialog.Alert" android:name="com.google.p146ar.core.InstallActivity" android:exported="false" android:excludeFromRecents="true" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize"/>
+    </application>
+</manifest>

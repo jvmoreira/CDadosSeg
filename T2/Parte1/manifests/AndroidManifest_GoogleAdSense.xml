@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.google.android.apps.ads.publisher" platformBuildVersionCode="27" platformBuildVersionName="P">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <application android:allowBackup="true" android:icon="@mipmap/product_logo_adsense_launcher_color_48" android:label="@string/app_name" android:name="com.google.android.apps.ads.publisher.app.Application" android:roundIcon="@mipmap/product_logo_adsense_round_launcher_color_48" android:theme="@style/app_theme">
+        <activity android:launchMode="singleTop" android:name="com.google.android.apps.ads.publisher.activity.ReportActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.adsense.com" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.google.com" android:path="/adsense" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="com.google.android.apps.ads.publisher" android:scheme="content"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/menu_notifications" android:launchMode="singleTop" android:name="com.google.android.apps.ads.publisher.activity.AlertsActivity" android:theme="@style/side_activity_theme"/>
+        <activity android:label="@string/menu_settings" android:launchMode="singleTop" android:name="com.google.android.apps.ads.publisher.activity.SettingsActivity" android:theme="@style/side_activity_theme"/>
+        <activity android:label="@string/title_payments" android:launchMode="singleTop" android:name="com.google.android.apps.ads.publisher.activity.PaymentsActivity" android:theme="@style/app_theme"/>
+        <activity android:launchMode="singleTop" android:name="com.google.android.apps.ads.publisher.activity.WebViewActivity" android:theme="@style/side_activity_theme"/>
+        <provider android:authorities="com.google.android.apps.ads.publisher.content.PublisherContentProvider" android:exported="false" android:name="com.google.android.apps.ads.publisher.content.PublisherContentProvider"/>
+        <receiver android:label="@string/widget_title" android:name="com.google.android.apps.ads.publisher.widget.ResizableWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info"/>
+        </receiver>
+        <receiver android:label="@string/widget_title" android:name="com.google.android.apps.ads.publisher.widget.LargeWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info_large"/>
+        </receiver>
+        <receiver android:label="@string/widget_title" android:name="com.google.android.apps.ads.publisher.widget.MediumWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info_medium"/>
+        </receiver>
+        <receiver android:label="@string/widget_title" android:name="com.google.android.apps.ads.publisher.widget.SmallWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info_small"/>
+        </receiver>
+        <service android:name="com.google.android.apps.ads.publisher.widget.UpdateWidgetService"/>
+        <service android:configChanges="keyboardHidden|orientation" android:name="com.google.android.apps.ads.publisher.widget.OrientationChangeTrackingService"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    </application>
+</manifest>

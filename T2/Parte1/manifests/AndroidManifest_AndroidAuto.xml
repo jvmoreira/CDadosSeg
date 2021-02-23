@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="com.google.android.projection.gearhead" android:versionCode="61610534" android:versionName="6.1.610534-release" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.google.android.projection.gearhead" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="30"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" android:maxSdkVersion="22"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.google.android.gms.permission.CAR_SPEED"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-feature android:name="android.hardware.usb.accessory"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.GEARHEAD_SERVICE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.CALL_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.COMPANION_APPROVE_WIFI_CONNECTIONS"/>
+    <uses-permission android:name="android.permission.LOCATION_HARDWARE"/>
+    <uses-permission android:name="android.permission.CONTROL_INCALL_EXPERIENCE"/>
+    <uses-permission android:name="android.permission.DUMP"/>
+    <uses-permission android:name="android.permission.ENTER_CAR_MODE_PRIORITIZED"/>
+    <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS"/>
+    <uses-permission android:name="android.permission.MANAGE_USB"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_ROUTING"/>
+    <uses-permission android:name="android.permission.MODIFY_DAY_NIGHT_MODE"/>
+    <uses-permission android:name="android.permission.START_ACTIVITIES_FROM_BACKGROUND"/>
+    <uses-permission android:name="android.permission.TOGGLE_AUTOMOTIVE_PROJECTION"/>
+    <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"/>
+    <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true"/>
+    <permission android:name="androidx.car.app.ACCESS_SURFACE" android:protectionLevel="normal"/>
+    <permission android:name="androidx.car.app.NAVIGATION_TEMPLATES" android:protectionLevel="normal"/>
+    <permission android:name="androidx.car.app.MAP_TEMPLATES" android:protectionLevel="normal"/>
+    <uses-feature android:glEsVersion="20000" android:required="true"/>
+    <queries>
+        <package android:name="com.google.android.apps.maps"/>
+    </queries>
+    <application android:theme="@style/AppTheme" android:label="@string/app_name" android:icon="@drawable/ic_launcher_auto" android:name="com.google.android.projection.gearhead.GhApplication" android:process=":shared" android:backupAgent="com.google.android.apps.auto.components.app.fzero.GhBackupAgent" android:allowBackup="true" android:restoreAnyVersion="true" android:hardwareAccelerated="true" android:fullBackupOnly="false" android:usesCleartextTraffic="true" android:resizeableActivity="false" android:roundIcon="@drawable/ic_launcher_auto_round">
+        <meta-data android:name="com.google.android.backup.api_key" android:value="AEdPqrEAAAAIkzXkE3j8IBV7ipDQ5vK9vEXB1TAgjdR3UghuUw"/>
+        <receiver android:name="com.google.android.gearhead.telemetry.InstallReferrerReceiver" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.gearhead.feedback.FeedbackNotificationHelper$NotificationCancelReceiver" android:exported="false" android:process=":projection">
+            <intent-filter>
+                <action android:name="com.google.android.gearhead.feedback.TIMEOUT_HATS_NOTIFICATION"/>
+                <action android:name="com.google.android.gearhead.feedback.DISMISS_HATS_NOTIFICATION"/>
+                <action android:name="com.google.android.gearhead.feedback.DISMISS_RATING_PROMPT_NOTIFICATION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.gearhead.common.settings.CarModeSettingsProcessor$RecoveryCheckAndRestoreBroadcastReceiver" android:enabled="false" android:exported="true" android:process=":vanagon">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.gearhead.common.phenotype.PhenotypeCommitter$CommitRequestReceiver" android:enabled="true" android:exported="true" android:process=":shared">
+            <intent-filter>
+                <action android:name="com.google.android.gms.phenotype.UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.gearhead.common.settings.DrivingModeSettingsCopier" android:enabled="true" android:exported="true" android:process=":shared">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gearhead.service.SharedService" android:exported="true" android:process=":shared"/>
+        <service android:name="com.google.android.gearhead.feedback.hats.LegacyHatsDownloadService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" android:process=":shared"/>
+        <service android:name="com.google.android.gearhead.feedback.hats.HatsLapseDetector$LapseService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" android:process=":shared"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService" android:enabled="true" android:exported="false" android:process=":projection"/>
+        <service android:name="com.google.android.gearhead.common.settings.CarModeSettingsProcessor$RecoveryCheckAndRestoreService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="true" android:process=":vanagon"/>
+        <service android:name="com.google.android.gearhead.notifications.SharedNotificationListenerManager$ListenerService" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" android:enabled="true" android:exported="true" android:process=":shared">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.google.android.apps.auto.components.app.fzero.FzeroReceiver" android:enabled="true" android:exported="true" android:process=":shared">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.apps.auto.components.app.fzero.InternalFzeroReceiver" android:enabled="true" android:exported="false" android:process=":shared">
+            <intent-filter>
+                <action android:name="com.google.android.apps.auto.components.app.fzero.ACTION_RESTORE_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.apps.auto.components.app.fzero.LauncherIconStateVerificationService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" android:process=":shared"/>
+        <activity android:theme="@style/BottomSheetTheme" android:name="com.google.android.apps.auto.components.frx.phonescreen.TapHeadUnitActivity" android:exported="false" android:process=":projection" android:taskAffinity="com.google.android.apps.auto.components.frx.phonescreen.WirelessFrxPhonescreenBottomSheetActivity" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="portrait" android:configChanges="orientation|screenSize" android:noHistory="true" android:autoRemoveFromRecents="true"/>
+        <activity android:theme="@style/BottomSheetTheme" android:name="com.google.android.apps.auto.components.frx.phonescreen.WirelessConnectingActivity" android:exported="true" android:process=":projection" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="portrait" android:configChanges="orientation|screenSize" android:noHistory="true" android:autoRemoveFromRecents="true"/>
+        <activity android:theme="@style/BottomSheetTheme" android:name="com.google.android.apps.auto.components.frx.phonescreen.WirelessPreflightActivity" android:exported="false" android:process=":projection" android:taskAffinity="com.google.android.apps.auto.components.frx.phonescreen.WirelessFrxPhonescreenBottomSheetActivity" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="portrait" android:configChanges="orientation|screenSize" android:autoRemoveFromRecents="true" android:showWhenLocked="true" android:turnScreenOn="true">
+            <intent-filter>
+                <action android:name="com.google.android.apps.auto.components.frx.phonescreen.TapHeadUnitActivity.CLOSE"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.google.android.apps.auto.components.calendar.CalendarRemindersService" android:exported="false" android:process=":projection"/>
+        <service android:name="com.google.android.apps.auto.components.calendar.CalendarNotificationActionService" android:exported="false" android:process=":projection"/>
+        <activity android:theme="@style/CarHomeTheme" android:name="com.google.android.apps.auto.components.carhome.ProjectedHomeActivity" android:exported="false" android:process=":projection" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="portrait" android:configChanges="uiMode"/>
+        <service android:name="com.google.android.apps.auto.components.carhome.ProjectedHomeService" android:exported="true" android:process=":projection"/>
+        <receiver android:name="com.google.android.apps.auto.components.permission.impl.OsUpgradeReceiver" android:enabled="true" android:exported="true" android:process=":shared">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.apps.auto.components.permission.impl.PermissionPollerImpl$KeepAliveService" android:exported="false" android:process=":projection"/>
+        <receiver android:name="com.google.android.apps.auto.components.connectivity.impl.ConnectivityEventHandlerImpl$ConnectivityEventBroadcastReceiver" android:enabled="true" android:exported="true" android:process=":shared">
+            <intent-filter>
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED"/>
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED"/>
+                <action android:name="android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED"/>
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"/>
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_HANDSHAKE"/>
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_DETACHED"/>
+                <action android:name="android.hardware.usb.action.USB_STATE"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="com.google.android.gms.car.CONNECTIVITY_EVENT"/>
+                <action android:name="com.google.android.gms.car.FIRST_ACTIVITY"/>
+                <action android:name="com.google.android.gms.car.CONNECTIVITY_STAGE_REACHED"/>
+                <action android:name="com.google.android.gms.car.VERSION_NEGOTIATION"/>
+                <action android:name="com.google.android.gms.car.SSL_NEGOTIATION"/>
+                <action android:name="com.google.android.gms.car.SDP_NEGOTIATION"/>
+                <action android:name="com.google.android.gms.car.AUTHORIZATION"/>
+                <action android:name="com.google.android.gms.car.DB_MIGRATION"/>
+                <action android:name="com.google.android.gms.car.SETTINGS_MIGRATION"/>
+                <action android:name="com.google.android.gms.car.CONNECTION_HANDOFF"/>
+                <action android:name="com.google.android.gms.car.FRX"/>
+                <action android:name="com.google.android.gms.car.CAR_SETUP_SERVICE"/>
+                <action android:name="com.google.android.gms.car.CONNECTION_TRANSFER"/>
+                <action android:name="com.google.android.gms.car.CAR_SERVICE_ENDPOINTS"/>
+                <action android:name="com.google.android.gms.car.CAR_SERVICE_ENDPOINTS_LOCAL"/>
+                <action android:name="com.google.android.gms.car.CAR_SERVICE_ENDPOINTS_REMOTE"/>
+                <action android:name="com.google.android.gms.car.GEARHEAD_ENDPOINTS"/>
+                <action android:name="com.google.android.gms.car.PROJECTION_STATE_CHANGED"/>
+                <action android:name="com.google.android.gms.car.PROJECTION_STARTED"/>
+                <action android:name="com.google.android.gms.car.PROJECTION_ENDED"/>
+                <action android:name="com.google.android.gms.car.PROJECTION_WINDOW_MANAGER"/>
+                <action android:name="com.google.android.gms.car.GEARHEAD_CONNECTED"/>
+                <action android:name="com.google.android.gms.car.PROCESS_STATE_CACHED"/>
+                <action android:name="com.google.android.gms.car.USB_STATE_CHANGED"/>
+                <action android:name="com.google.android.gms.car.USB_ISSUE_FOUND"/>
+                <action android:name="com.google.android.gms.car.CAR_STARTUP_NOTIFICATION"/>
+                <action android:name="com.google.android.gms.car.USB_MONITOR_LIFETIME"/>
+                <action android:name="com.google.android.gms.car.USB_RESET"/>
+                <action android:name="com.google.android.gms.car.WIRELESS_SOCKET_CONNECTION"/>
+                <action android:name="com.google.android.gms.car.STARTUP_LATENCY_MEASUREMENT_EVENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.apps.auto.components.connectivity.impl.ConnectivityEventHandlerImpl$ConnectivityEventBroadcastReceiverNonExported" android:enabled="true" android:exported="false" android:process=":shared">
+            <intent-filter>
+                <action android:name="com.google.android.apps.auto.components.connectivity.ACTION_SESSION_EXPIRED"/>
+                <action android:name="com.google.android.apps.auto.components.connectivity.ACTION_LOG_WIRELESS_EVENT"/>
+                <action android:name="com.google.android.apps.auto.components.connectivity.ACTION_LOG_WIRELESS_STATE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.apps.auto.components.connectivity.impl.ConnectivityJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" android:process=":shared"/>
+        <service android:name="com.google.android.apps.auto.components.connectivity.impl.CollectFeedbackService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" android:process=":shared"/>
+        <service android:name="com.google.android.apps.auto.components.messaging.intentservice.ProjectedProxyMessagingService" android:exported="false" android:process=":projection"/>
+        <service android:name="com.google.android.apps.auto.components.messaging.intentservice.VanagonProxyMessagingService" android:exported="false" android:process=":vanagon"/>
+        <activity android:theme="@style/VnNoUITheme" android:name="com.google.android.apps.auto.components.morris.MorrisRunningActivity" android:exported="false" android:process=":vanagon" android:excludeFromRecents="true" android:screenOrientation="portrait"/>
+        <activity android:name="com.google.android.apps.auto.components.permission.prompt.PermissionPromptPhoneActivity" android:exported="false" android:process=":projection"/>
+        <activity android:theme="@style/GearheadSdkAppTheme.Settings" android:label="@string/android_auto_connect_a_car" android:name="com.google.android.apps.auto.components.settings.connectacar.ConnectACarActivity" android:exported="false" android:process=":projection"/>
+        <activity android:theme="@style/GearheadSdkAppTheme.Settings" android:label="@string/android_auto_connect_a_car" android:name="com.google.android.apps.auto.components.settings.connectacar.CarDetailsActivity" android:exported="false" android:process=":projection"/>
+        <receiver android:name="com.google.android.apps.auto.components.softminversion.SoftMinversionManager$NotificationActionBroadcastReceiver" android:enabled="true" android:exported="false" android:process=":shared"/>
+        <service android:label="local_incall_service" android:name="com.google.android.gms.car.telecom.SharedInCallServiceImpl" android:permission="android.permission.BIND_INCALL_SERVICE" android:enabled="false" android:exported="true" android:process=":shared">
+            <intent-filter>
+                <action android:name="android.telecom.InCallService"/>
+            </intent-filter>
+            <meta-data android:name="android.telecom.INCLUDE_SELF_MANAGED_CALLS" android:value="true"/>
+            <meta-data android:name="android.telecom.IN_CALL_SERVICE_CAR_MODE_UI" android:value="true"/>
+        </service>
+        <provider android:name="com.google.android.apps.auto.components.demand.audio.GhMicrophoneContentProvider" android:permission="android.permission.RECORD_AUDIO" android:exported="true" android:process=":projection" android:authorities="com.google.android.projection.gearhead.provider"/>
+        <provider android:name="com.google.android.apps.auto.components.config.preferences.contentprovider.SharedPreferencesProvider" android:exported="true" android:process=":shared" android:authorities="com.google.android.gearhead.shared_preferences_provider"/>
+        <provider android:name="com.google.android.apps.auto.components.troubleshooter.contentprovider.TroubleshooterContentProvider" android:exported="true" android:process=":shared" android:authorities="com.google.android.projection.gearhead.troubleshooter_provider"/>
+        <activity android:theme="@style/CompanionAppCardsTheme" android:name="com.google.android.projection.gearhead.companion.AndroidAutoActivity" android:exported="true" android:process=":projection" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/CarFrx" android:name="com.google.android.projection.gearhead.companion.UnsupportedDeviceActivity" android:exported="false" android:process=":projection" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/GearheadSdkAppTheme.CustomSettingsTheme" android:label="@string/settings" android:name="com.google.android.projection.gearhead.companion.settings.SettingsActivity" android:exported="false" android:process=":projection" android:excludeFromRecents="true" android:documentLaunchMode="always"/>
+        <activity android:theme="@style/GearheadSdkAppTheme.CustomSettingsTheme" android:label="@string/settings" android:name="com.google.android.projection.gearhead.companion.settings.DefaultSettingsActivity" android:exported="true" android:process=":projection" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.google.android.projection.gearhead.SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.APPLICATION_PREFERENCES"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.settings.action.SETTINGS"/>
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category" android:value="com.android.settings.category.ia.device"/>
+            <meta-data android:name="com.android.settings.title" android:resource="@string/app_name"/>
+            <meta-data android:name="com.android.settings.summary" android:resource="@string/system_settings_summary"/>
+            <meta-data android:name="com.android.settings.icon" android:resource="@drawable/ic_android_auto"/>
+            <meta-data android:name="com.android.settings.icon_tintable" android:value="true"/>
+        </activity>
+        <activity android:theme="@style/CompanionAppTheme" android:name="com.google.android.projection.gearhead.companion.settings.LegalInfoActivity" android:exported="false" android:process=":projection"/>
+        <activity android:theme="@style/CompanionAppCompatTheme" android:name="com.google.android.projection.gearhead.companion.settings.LauncherAppSettingsActivity" android:exported="false" android:process=":projection"/>
+        <activity android:theme="@style/CompanionAppCompatTheme" android:name="com.google.android.projection.gearhead.companion.settings.AddAssistantShortcutActivity" android:exported="false" android:process=":projection"/>
+        <activity android:theme="@style/GhCarFrx" android:label="@string/permission_dialog_title" android:name="com.google.android.projection.gearhead.companion.RequestManifestPermissionsActivity" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="com.google.android.projection.gearhead.REQUEST_PERMISSION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/GhCarFrx" android:label="@string/permission_dialog_title" android:name="com.google.android.projection.gearhead.companion.RequestNotificationAccessActivity" android:exported="true" android:process=":projection"/>
+        <activity android:theme="@style/CompanionAppTheme" android:label="@string/developer_settings_title" android:name="com.google.android.projection.gearhead.companion.devsettings.DeveloperSettingsActivity" android:exported="false" android:process=":shared" android:parentActivityName="com.google.android.projection.gearhead.companion.AndroidAutoActivity"/>
+        <activity android:theme="@style/CarFrx" android:label="@string/app_name" android:name="com.google.android.projection.gearhead.frx.SetupActivity" android:exported="true" android:process=":projection" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.CAR_PROJECTION"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/CompanionAppTheme" android:label="@string/feedback_list_activity_name" android:name="com.google.android.projection.gearhead.companion.feedback.FeedbackListActivity" android:exported="false" android:process=":projection"/>
+        <activity android:theme="@style/CompanionAppTheme" android:label="@string/feedback_editor_activity_name" android:name="com.google.android.projection.gearhead.companion.feedback.FeedbackEditorActivity" android:exported="false" android:process=":projection" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.google.android.gearhead.vanagon.preflight.VnNoPlayServicesActivity" android:exported="false" android:process=":vanagon" android:excludeFromRecents="true"/>
+        <activity android:theme="@style/VnPreflightTheme" android:name="com.google.android.gearhead.vanagon.preflight.VnCarHomeSelectorActivity" android:exported="false" android:process=":vanagon" android:excludeFromRecents="true"/>
+        <activity android:theme="@style/VnNoUITheme" android:name="com.google.android.gearhead.vanagon.VnLaunchPadInternalActivity" android:exported="true" android:process=":vanagon" android:taskAffinity="com.google.android.gearhead.vanagon" android:excludeFromRecents="true" android:configChanges="uiMode" android:showWhenLocked="true">
+            <intent-filter android:priority="1">
+                <action android:name="com.google.android.gearhead.LAUNCH_ANDROID_AUTO_PHONE"/>
+                <action android:name="com.google.android.gearhead.LAUNCH_ANDROID_AUTO_INTO_GMM"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:priority="1">
+                <action android:name="com.google.android.gearhead.LAUNCH_GMM"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity-alias android:name="com.google.android.gearhead.vanagon.VnLaunchPadActivity" android:enabled="@bool/vn_icon_visibility_default" android:exported="true" android:targetActivity="com.google.android.gearhead.vanagon.VnLaunchPadInternalActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:theme="@style/VnNoUITheme" android:name="com.google.android.gearhead.vanagon.VnDrivingModeLauncherActivity" android:permission="com.google.android.gms.carsetup.DRIVING_MODE_MANAGER" android:exported="true" android:process=":vanagon" android:taskAffinity="com.google.android.gearhead.vanagon" android:excludeFromRecents="true" android:configChanges="uiMode">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.drivingMode.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/VnNoUITheme" android:name="com.google.android.gearhead.vanagon.VnDismissKeyguardActivity" android:exported="false" android:process=":vanagon" android:taskAffinity="com.google.android.gearhead.vanagon" android:excludeFromRecents="true" android:showWhenLocked="true" android:turnScreenOn="true"/>
+        <activity android:theme="@style/VnFacetTheme" android:name="com.google.android.gearhead.vanagon.media.VnMediaActivity" android:exported="true" android:process=":vanagon" android:taskAffinity="com.google.android.gearhead.vanagon.media" android:excludeFromRecents="true" android:configChanges="uiMode"/>
+        <activity android:theme="@style/VnFacetTheme" android:name="com.google.android.gearhead.vanagon.lens.VnLensActivity" android:exported="true" android:process=":vanagon" android:taskAffinity="com.google.android.gearhead.vanagon.lens" android:configChanges="uiMode"/>
+        <activity android:theme="@style/VnFacetTheme" android:name="com.google.android.gearhead.vanagon.telephony.VnCallActivity" android:exported="true" android:process=":vanagon" android:taskAffinity="com.google.android.gearhead.vanagon.telephony" android:excludeFromRecents="true" android:configChanges="uiMode" android:maxAspectRatio="2.22"/>
+        <activity android:theme="@style/VnFacetTheme" android:name="com.google.android.gearhead.vanagon.telephony.VnCallActivityLite" android:exported="true" android:process=":vanagon" android:taskAffinity="com.google.android.gearhead.vanagon.telephony" android:excludeFromRecents="true" android:configChanges="uiMode" android:maxAspectRatio="2.22"/>
+        <activity android:theme="@style/VnTheme" android:name="com.google.android.gearhead.vanagon.assistant.VnDemandActivity" android:exported="false" android:process=":vanagon" android:taskAffinity="com.google.android.gearhead.vanagon.assistant" android:excludeFromRecents="true" android:configChanges="uiMode"/>
+        <activity android:theme="@style/VnOverviewTheme" android:name="com.google.android.gearhead.vanagon.overview.VnOverviewActivity" android:exported="true" android:process=":vanagon" android:taskAffinity="com.google.android.gearhead.vanagon.overview" android:excludeFromRecents="false" android:launchMode="singleTask" android:configChanges="uiMode" android:maxAspectRatio="2.22"/>
+        <activity android:theme="@style/VnConfirmExitTheme" android:name="com.google.android.gearhead.vanagon.overview.VnConfirmExitActivity" android:exported="true" android:process=":vanagon" android:taskAffinity="com.google.android.gearhead.vanagon.exitconfirmactivity" android:excludeFromRecents="true" android:launchMode="singleTask" android:configChanges="uiMode"/>
+        <activity-alias android:name="com.google.android.gearhead.vanagon.home1" android:exported="true" android:targetActivity="com.google.android.gearhead.vanagon.overview.VnConfirmExitActivity">
+            <meta-data android:name="android.dock_home" android:value="true"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.CAR_MODE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.CAR_DOCK"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:name="com.google.android.gearhead.vanagon.home2" android:enabled="false" android:exported="true" android:targetActivity="com.google.android.gearhead.vanagon.overview.VnConfirmExitActivity">
+            <meta-data android:name="android.dock_home" android:value="true"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.CAR_MODE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.CAR_DOCK"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:theme="@style/CompanionAppTheme" android:label="@string/vn_settings_title" android:name="com.google.android.gearhead.vanagon.settings.VnDevSettingsActivity" android:exported="false" android:process=":vanagon" android:parentActivityName="com.google.android.projection.gearhead.companion.AndroidAutoActivity"/>
+        <activity android:theme="@style/KeyboardActivityTheme" android:label="@string/keyboard_label" android:name="com.google.android.apps.auto.components.externalkeyboard.phone.PhoneKeyboardActivity" android:exported="false" android:process=":projection" android:excludeFromRecents="true" android:launchMode="singleTask" android:configChanges="uiMode" android:keepScreenOn="true" android:windowSoftInputMode="adjustUnspecified|stateUnchanged|stateVisible|stateAlwaysVisible|adjustResize" android:noHistory="true" android:showWhenLocked="true" android:turnScreenOn="true"/>
+        <activity android:theme="@style/VnNoUITheme" android:name="com.google.android.gearhead.feedback.CrashReporterActivity" android:exported="false" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/CompanionAppSettingsThemeBase" android:name="com.google.android.apps.auto.components.feedback.hats.HatsSurveyActivity" android:exported="false" android:process=":shared"/>
+        <provider android:name="android.support.p001v4.content.FileProvider" android:exported="false" android:process=":projection" android:authorities="com.google.android.projection.gearhead.devsettings.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <provider android:name="com.google.android.projection.gearhead.companion.settings.SettingsSearchProvider" android:permission="android.permission.READ_SEARCH_INDEXABLES" android:exported="true" android:process=":projection" android:multiprocess="false" android:authorities="com.google.android.projection.gearhead" android:grantUriPermissions="true">
+            <intent-filter>
+                <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER"/>
+            </intent-filter>
+        </provider>
+        <receiver android:name="com.google.android.gearhead.vanagon.autolaunch.VnAutoLaunchReceiver" android:enabled="false" android:exported="true" android:process=":vanagon">
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+                <action android:name="android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED"/>
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED"/>
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED"/>
+                <action android:name="com.google.android.gearhead.vanagon.autolaunch.DEADLINE_EXCEEDED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.gearhead.vanagon.autolaunch.VnDisableAutoLaunchReceiver" android:permission="com.google.android.gms.carsetup.DRIVING_MODE_MANAGER" android:enabled="true" android:exported="true" android:process=":vanagon">
+            <intent-filter>
+                <action android:name="com.google.android.gearhead.vanagon.autolaunch.DISABLE_AUTOLAUNCH"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.gearhead.lens.LensReceiver" android:exported="false" android:process=":projection"/>
+        <receiver android:name="com.google.android.gearhead.feedback.CrashReporterReceiver" android:exported="false" android:process=":shared"/>
+        <service android:name="com.google.android.projection.gearhead.setup.SetupService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.HOME"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.placeholder.PlaceholderService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.service.GearHeadService" android:permission="com.google.android.gms.permission.CAR" android:exported="true" android:process=":projection"/>
+        <service android:name="com.google.android.projection.gearhead.system.GhLifecycleService" android:permission="com.google.android.gms.permission.CAR" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.CATEGORY_PROJECTION_LIFECYCLE_SERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.android.apps.auto.components.lifetime.service.GhLifetimeService" android:permission="com.google.android.gms.permission.CAR" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.CATEGORY_PROJECTION_LIFETIME_SERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.applauncher.GhAppLauncherService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.ProjectionTrampolineInitialService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.Fullscreen"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.ProjectionTrampolineFallbackService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.Fullscreen"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.cluster.ClusterTrampolineCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.Fullscreen"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.secondary.SecondaryScreenTrampolineCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.Fullscreen"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.cluster.PrototypeClusterCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.cluster.PrototypeSecondaryRegionCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.auxiliarydisplay.AuxiliaryDisplayNavigationTrampolineCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.Fullscreen"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.auxiliarydisplay.AuxiliaryDisplayTurnCardTrampolineCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.Fullscreen"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.secondary.SecondaryScreenTurnCardCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.auxiliarydisplay.PrototypeAuxiliaryDisplayNavigationCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.auxiliarydisplay.PrototypeAuxiliaryDisplayTurnCardCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.auxiliarydisplay.AuxiliaryDisplayTurnCardCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.auxiliarydisplay.AuxiliaryDisplayNavigationCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.cluster.ClusterTurnCardCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:label="@string/phone_app_name" android:icon="@drawable/ic_logo_dialer_round" android:name="com.google.android.projection.gearhead.telecom.TelecomService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:label="@string/music_app_name" android:name="com.google.android.projection.gearhead.media.MediaService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:label="@string/gearhead_on_phone_activity_settings_label" android:icon="@drawable/ic_settings_applauncher" android:name="com.google.android.apps.auto.components.settings.CarSettingsService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="com.google.android.car.action.CAR_APP"/>
+            </intent-filter>
+            <meta-data android:name="icon" android:resource="@drawable/ic_settings_applauncher"/>
+        </service>
+        <service android:label="@string/clustersim_settings_title" android:icon="@drawable/ic_clustersim_settings" android:name="com.google.android.apps.auto.components.settings.ClustersimSettingsService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.car.action.CAR_APP"/>
+            </intent-filter>
+            <meta-data android:name="icon" android:resource="@drawable/ic_settings_applauncher"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.system.secondary.GhSecondaryScreenCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.apphost.TemplateService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.legacyapphost.TemplateService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.messaging.MessagingService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:label="@string/calendar_app_name" android:icon="@drawable/ic_calendar_app_icon" android:name="com.google.android.projection.gearhead.calendar.CalendarAppService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:label="@string/sms_app_name" android:icon="@drawable/sms_app_icon" android:name="com.google.android.projection.gearhead.messaging.SmsMessagingService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.stream.StreamService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected"/>
+        </service>
+        <service android:label="@string/oem_exit_app_name" android:name="com.google.android.projection.gearhead.oem.OEMExitService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION_OEM"/>
+            </intent-filter>
+            <meta-data android:name="icon" android:resource="@drawable/ic_exit_native"/>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected"/>
+        </service>
+        <service android:label="@string/all_car_apps_app_name" android:name="com.google.android.projection.gearhead.oem.AllCarAppsService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION_OEM"/>
+            </intent-filter>
+            <meta-data android:name="icon" android:resource="@drawable/ic_overflow_carapps"/>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.input.TouchInputMethodService" android:permission="com.google.android.gms.permission.CAR" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.input.RotaryInputMethodService" android:permission="com.google.android.gms.permission.CAR" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.android.projection.gearhead.companion.DeveloperHeadUnitNetworkService" android:exported="false" android:process=":projection"/>
+        <service android:name="com.google.android.projection.gearhead.service.CarSystemUiControllerService" android:exported="true" android:process=":projection"/>
+        <service android:name="com.google.android.gearhead.appdecor.AppDecorService" android:exported="true" android:process=":projection"/>
+        <service android:name="com.google.android.gearhead.demand.DemandClientService" android:exported="true" android:process=":projection"/>
+        <service android:name="com.google.android.gearhead.vanagon.system.VnClientService" android:exported="true" android:process=":vanagon"/>
+        <service android:name="com.google.android.gearhead.vanagon.system.VnSysUiService" android:exported="true" android:process=":vanagon"/>
+        <service android:name="com.google.android.gearhead.vanagon.service.VnLifetimeService" android:exported="false" android:process=":vanagon"/>
+        <service android:name="com.google.android.gearhead.vanagon.service.VnSmartLockWaiterService" android:exported="false" android:process=":vanagon"/>
+        <service android:name="com.google.android.gearhead.vanagon.autolaunch.VnAutoLaunchManager$KeepAliveService" android:enabled="true" android:exported="false" android:process=":vanagon"/>
+        <service android:name="com.google.android.gearhead.vanagon.autolaunch.VnAutoLaunchManager$StopKeepAliveService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false" android:process=":vanagon"/>
+        <service android:name="com.google.android.gearhead.feedback.CrashReporterService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" android:process=":shared"/>
+        <service android:name="com.google.android.gearhead.feedback.CrashReporterReceiver$CollectFeedbackService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" android:process=":shared"/>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <meta-data android:name="android.max_aspect" android:value="2.22"/>
+        <meta-data android:name="com.google.android.projection.gearhead.WINDOW_ANIMATION_STYLE" android:resource="@style/Animation.Projection.Activity"/>
+        <receiver android:name="com.google.android.apps.auto.wireless.bluetooth.WifiBluetoothReceiver" android:enabled="true" android:exported="true" android:process=":shared">
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED"/>
+                <action android:name="android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED"/>
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED"/>
+                <action android:name="com.google.android.projection.gearhead.START_WIRELESS_PROJECTION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.apps.auto.wireless.bluetooth.WifiBluetoothReceiver$WifiBluetoothReceiverNonExported" android:enabled="true" android:exported="false" android:process=":shared">
+            <intent-filter>
+                <action android:name="com.google.android.projection.gearhead.RESCAN_AFTER_WELCOME_DOWNLOAD"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.google.android.apps.auto.wireless.setup.service.impl.WirelessStartupActivity" android:exported="true" android:process=":projection" android:excludeFromRecents="true" android:showWhenLocked="true" android:turnScreenOn="true"/>
+        <service android:name="com.google.android.apps.auto.wireless.setup.service.impl.WirelessSetupSharedService" android:enabled="true" android:exported="true" android:process=":projection" android:foregroundServiceType="8"/>
+        <service android:name="com.google.android.apps.auto.wireless.setup.service.impl.WirelessSetupSharedCarService" android:enabled="true" android:exported="true" android:process=":car" android:foregroundServiceType="8"/>
+        <service android:name="com.google.android.apps.auto.wireless.scan.WifiChannelScanJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true" android:process=":shared"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyB2UEsa6oy8B3qvFVVs3vTgm--7vHNutdk"/>
+        <meta-data android:name="com.google.android.gms.phenotype.registration.xml:com.google.android.projection.gearhead" android:resource="@xml/com_google_android_projection_gearhead_phenotype_release"/>
+        <service android:name="com.google.android.libraries.phenotype.registration.PhenotypeMetadataHolderService" android:enabled="false" android:exported="false" android:process="">
+            <intent-filter>
+                <action android:name="com.google.android.libraries.phenotype.registration.PhenotypeMetadataHolderService"/>
+            </intent-filter>
+            <meta-data android:name="com.google.android.gms.phenotype.registration.binarypb:com.google.android.projection.gearhead" android:resource="@raw/com_google_android_projection_gearhead_registration_info_release"/>
+            <meta-data android:name="com.google.android.gms.phenotype.registration.binarypb:com.google.android.libraries.consentverifier" android:resource="@raw/com_google_android_libraries_consentverifier_registration_info"/>
+            <meta-data android:name="com.google.android.gms.phenotype.registration.binarypb:com.google.android.libraries.performance.primes" android:resource="@raw/com_google_android_libraries_performance_primes_registration_info"/>
+            <meta-data android:name="com.google.android.gms.phenotype.registration.binarypb:com.google.android.libraries.surveys" android:resource="@raw/com_google_android_libraries_surveys_registration_info"/>
+        </service>
+        <meta-data android:name="com.google.android.gms.phenotype.registration.xml:com.google.android.libraries.consentverifier" android:resource="@xml/com_google_android_libraries_consentverifier_phenotype"/>
+        <meta-data android:name="com.google.android.gms.phenotype.registration.xml:com.google.android.libraries.performance.primes" android:resource="@xml/com_google_android_libraries_performance_primes_phenotype"/>
+        <meta-data android:name="com.google.android.gms.phenotype.registration.xml:com.google.android.libraries.surveys" android:resource="@xml/com_google_android_libraries_surveys_phenotype"/>
+        <service android:name="com.google.android.apps.auto.carservice.clustersim.ClustersimService" android:enabled="true" android:exported="false" android:process=":car"/>
+        <activity android:theme="@style/ClustersimTheme" android:name="com.google.android.apps.auto.carservice.clustersim.ClustersimActivity" android:exported="false" android:process=":car" android:launchMode="singleTask" android:configChanges="uiMode" android:showOnLockScreen="true" android:showForAllUsers="true" android:showWhenLocked="true"/>
+        <receiver android:name="com.google.android.apps.auto.carservice.frx.FrxReceiver" android:enabled="true" android:exported="true" android:process=":car">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.carsetup.CarSetupServiceImpl" android:enabled="true" android:exported="false" android:process=":car"/>
+        <service android:name="com.google.android.gms.carsetup.CarStartupServiceImpl" android:enabled="true" android:exported="false" android:process=":car">
+            <intent-filter>
+                <action android:name="com.google.android.gms.car.wifi.BT_START"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <activity android:theme="@style/CarWindowDisablePreview" android:label="@string/car_app_name" android:icon="@drawable/car_launcher_auto" android:name="com.google.android.apps.auto.carservice.gmscorecompat.FirstActivityImpl" android:enabled="false" android:exported="true" android:process=":car" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|uiMode|screenSize" android:directBootAware="true" android:showWhenLocked="true" android:turnScreenOn="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"/>
+                <action android:name="com.google.android.gms.car.usb.USB_ACCESSORY_FORCE_START"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" android:resource="@xml/car_usb_accessory_filter"/>
+        </activity>
+        <activity android:theme="@style/CarFrx" android:label="@string/car_app_name" android:icon="@drawable/car_launcher_auto" android:name="com.google.android.gms.carsetup.SetupActivityImpl" android:enabled="true" android:exported="false" android:process=":car"/>
+        <activity android:theme="@style/Theme.Material.NoActionBar" android:label="@string/car_app_name" android:icon="@drawable/car_launcher_auto" android:name="com.google.android.gms.carsetup.CarErrorDisplayActivityImpl" android:enabled="true" android:exported="false" android:process=":shared" android:taskAffinity="com.google.android.gms.carsetup.CarErrorDisplayActivityImpl" android:launchMode="singleTask" android:autoRemoveFromRecents="true"/>
+        <service android:name="com.google.android.apps.auto.carservice.gmscorecompat.CarChimeraService" android:enabled="true" android:exported="true" android:process=":car" android:foregroundServiceType="98">
+            <intent-filter>
+                <action android:name="com.google.android.gms.car.service.START"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.google.android.apps.auto.carservice.gmscorecompat.CarBluetoothReceiver" android:enabled="true" android:exported="true" android:process=":car">
+            <intent-filter>
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED"/>
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED"/>
+                <action android:name="android.bluetooth.device.action.UUID"/>
+                <action android:name="android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED"/>
+                <action android:name="android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.apps.auto.carservice.gmscorecompat.ComponentInitReceiver" android:enabled="true" android:exported="true" android:process=":car">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/CarFrx" android:label="@string/car_app_name" android:icon="@drawable/car_launcher_auto" android:name="com.google.android.gms.carsetup.setup.PreSetupActivityImpl" android:enabled="true" android:exported="false" android:process=":car" android:taskAffinity="com.google.android.gms.carsetup.setup.PreSetupActivityImpl" android:autoRemoveFromRecents="true"/>
+        <service android:name="com.google.android.apps.auto.carservice.service.impl.GearheadCarStartupService" android:enabled="true" android:exported="true" android:process=":car"/>
+        <service android:name="com.google.android.apps.auto.components.feedback.hats.HatsDownloadService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" android:process=":shared"/>
+        <service android:name="com.google.android.apps.auto.components.frx.car.CakewalkCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected"/>
+            <meta-data android:name="com.google.android.projection.gearhead.LIFETIME_REQUIRED" android:value="false"/>
+        </service>
+        <activity android:theme="@style/Cakewalk.BottomSheetTheme" android:name="com.google.android.apps.auto.components.preflight.phone.PreflightPhoneErrorActivity" android:exported="false" android:process=":projection" android:excludeFromRecents="true" android:screenOrientation="portrait" android:autoRemoveFromRecents="true"/>
+        <activity android:theme="@style/Cakewalk.BottomSheetTheme" android:name="com.google.android.apps.auto.components.preflight.phone.PreflightLockOptOutActivity" android:exported="false" android:process=":projection" android:excludeFromRecents="true" android:screenOrientation="portrait" android:autoRemoveFromRecents="true"/>
+        <activity android:theme="@style/Cakewalk.BottomSheetTheme" android:label="CakewalkPhoneActivity" android:name="com.google.android.apps.auto.components.preflight.phone.PreflightPhoneWelcomeActivity" android:exported="false" android:process=":projection" android:excludeFromRecents="true" android:screenOrientation="portrait" android:autoRemoveFromRecents="true"/>
+        <activity android:theme="@style/CarFrxTheme.Cakewalk.Phone" android:label="CakewalkPhoneActivity" android:name="com.google.android.apps.auto.components.preflight.phone.PreflightPhonePermissionsActivity" android:exported="false" android:process=":projection" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="portrait" android:autoRemoveFromRecents="true"/>
+        <activity android:theme="@style/CarFrxTheme.Cakewalk.Phone" android:label="CakewalkPhoneActivity" android:name="com.google.android.apps.auto.components.preflight.phone.PreflightPhoneDataNoticeActivity" android:exported="false" android:process=":projection" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="portrait" android:autoRemoveFromRecents="true"/>
+        <service android:name="com.google.android.apps.auto.components.preflight.PreflightCarActivityService" android:exported="true" android:process=":projection">
+            <intent-filter>
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION"/>
+            </intent-filter>
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected"/>
+            <meta-data android:name="com.google.android.projection.gearhead.LIFETIME_REQUIRED" android:value="false"/>
+        </service>
+        <service android:name="com.google.android.apps.auto.components.system.secondary.activity.clock.ClockCarActivityService" android:exported="false" android:process=":projection">
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.Fullscreen"/>
+        </service>
+        <service android:name="com.google.android.apps.auto.components.system.secondary.activity.media.MiniMediaCarActivityService" android:exported="false" android:process=":projection">
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.Fullscreen"/>
+        </service>
+        <service android:name="com.google.android.apps.auto.components.system.secondary.activity.media.MiniMediaClusterCarActivityService" android:exported="false" android:process=":projection">
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.TranslucentStatus"/>
+        </service>
+        <service android:name="com.google.android.apps.auto.components.system.secondary.activity.telecom.MiniTelecomCarActivityService" android:exported="false" android:process=":projection">
+            <meta-data android:name="android.app.theme" android:resource="@style/Theme.Gearhead.Projected.Fullscreen"/>
+        </service>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <service android:name="com.google.android.gms.car.StagingService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false"/>
+        <receiver android:name="com.google.android.gms.car.UpdateReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:theme="@style/HatsLibPromptTheme" android:name="com.google.android.libraries.hats20.SurveyPromptActivity" android:exported="false" android:excludeFromRecents="true" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/TransparentActivity" android:name="com.google.android.libraries.hats20.ShowSurveyActivity" android:exported="false">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.AppCompat.Light.DarkActionBar" android:label="@string/primes_debug_activity_label" android:name="com.google.android.libraries.performance.primes.debug.PrimesEventActivity" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.primes.action.DEBUG_PRIMES_EVENTS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.google.android.libraries.performance.primes.transmitter.LifeboatReceiver" android:exported="false" android:process=":primes_lifeboat"/>
+        <receiver android:name="com.google.android.libraries.phenotype.client.stable.AccountRemovedBroadcastReceiver" android:exported="true" android:process="">
+            <intent-filter>
+                <action android:name="android.accounts.action.ACCOUNT_REMOVED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.libraries.phenotype.client.stable.PhenotypeUpdateBackgroundBroadcastReceiver" android:permission="com.google.android.gms.permission.PHENOTYPE_UPDATE_BROADCAST" android:exported="true" android:process="">
+            <intent-filter>
+                <action android:name="com.google.android.gms.phenotype.UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/Theme.AppCompat.DayNight" android:label="@string/preferences_license_title" android:name="com.google.android.libraries.social.licenses.LicenseMenuActivity" android:exported="true"/>
+        <activity android:theme="@style/Theme.AppCompat.DayNight" android:label="@string/preferences_license_title" android:name="com.google.android.libraries.social.licenses.LicenseActivity" android:exported="false"/>
+        <activity android:theme="@style/SurveysTransparentActivity" android:name="com.google.android.libraries.surveys.internal.view.SurveyActivity" android:exported="true" android:process="@string/survey_activity_process_name" android:excludeFromRecents="true" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:windowSoftInputMode="adjustResize"/>
+        <provider android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer" android:exported="false" android:multiprocess="true" android:authorities="com.google.android.projection.gearhead.lifecycle-process"/>
+        <provider android:name="androidx.work.impl.WorkManagerInitializer" android:exported="false" android:multiprocess="true" android:authorities="com.google.android.projection.gearhead.workmanager-init" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.background.systemalarm.SystemAlarmService" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.foreground.SystemForegroundService" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver" android:enabled="true" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP" android:enabled="true" android:exported="true" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

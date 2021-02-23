@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:versionCode="30010874" android:versionName="21.02.20.0" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.Slack" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="29"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="https"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:theme="@style/NoActionBarActivityTheme" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:name="slack.app.SlackApp" android:allowBackup="false" android:extractNativeLibs="false" android:fullBackupContent="@xml/appsflyer_backup_rules" android:resizeableActivity="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory">
+        <meta-data android:name="android.content.APP_RESTRICTIONS" android:resource="@xml/app_restrictions"/>
+        <meta-data android:name="com.bugsnag.android.API_KEY" android:value="daa147c8040966b30657294fe96490c5"/>
+        <meta-data android:name="com.bugsnag.android.DETECT_NDK_CRASHES" android:value="true"/>
+        <meta-data android:name="com.bugsnag.android.DETECT_ANRS" android:value="true"/>
+        <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:theme="@style/DrawerActivityTheme.Launcher" android:label="@string/app_name" android:name="slack.app.p045ui.HomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/*"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="message/*"/>
+                <data android:mimeType="multipart/*"/>
+                <data android:mimeType="video/*"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/*"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="message/*"/>
+                <data android:mimeType="multipart/*"/>
+                <data android:mimeType="video/*"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <meta-data android:name="android.service.chooser.chooser_target_service" android:value="slack.app.chooser.ShareChooserTargetService"/>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcut"/>
+        </activity>
+        <activity android:name="slack.app.p045ui.applanding.AppLandingActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/a11y_sign_in_title" android:name="slack.app.p045ui.SignInActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="slack.app.p045ui.jointeam.JoinTeamActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="slack.app.p045ui.findyourteams.emailconfirmation.EmailConfirmationActivity" android:launchMode="singleTop" android:allowTaskReparenting="false" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize"/>
+        <activity android:theme="@style/FirstSignInActivityTheme" android:name="slack.app.p045ui.FirstSignInActivity"/>
+        <activity android:name="slack.app.features.settings.activities.SettingsActivity"/>
+        <activity android:name="slack.app.features.notificationsettings.activities.NotificationSettingsActivity" android:parentActivityName="slack.app.ui.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.NOTIFICATION_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/NoActionModeOverlayTheme" android:name="slack.app.p045ui.SearchActivity" android:windowSoftInputMode="adjustResize" android:parentActivityName="slack.app.ui.HomeActivity"/>
+        <activity android:name="slack.app.p045ui.ChannelInfoActivity"/>
+        <activity android:name="slack.app.p045ui.editchannel.EditChannelActivity"/>
+        <activity android:name="slack.app.p045ui.editchannel.EditChannelV2Activity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="slack.app.p045ui.AddUsersActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="slack.app.p045ui.invite.InviteActivity" android:windowSoftInputMode="stateHidden" android:parentActivityName="slack.app.ui.HomeActivity"/>
+        <activity android:name="slack.app.p045ui.channelbrowser.ChannelBrowserActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="slack.app.p045ui.channelview.ChannelViewActivity"/>
+        <activity android:name="slack.app.features.channelnotificationsettings.activities.ChannelNotificationSettingsActivity"/>
+        <activity android:theme="@style/TransparentActivityTheme" android:name="slack.app.p045ui.ProfileActivity" android:launchMode="singleTop" android:parentActivityName="slack.app.ui.HomeActivity"/>
+        <activity android:theme="@style/SwipeableActivityTheme" android:name="slack.app.p045ui.threaddetails.messagedetails.MessageDetailsActivity" android:parentActivityName="slack.app.ui.HomeActivity"/>
+        <activity android:name="slack.app.p045ui.EmojiSearchActivity"/>
+        <activity android:name="slack.app.p045ui.UploadActivity" android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="slack.app.p045ui.FullSizeImageAttachmentActivity"/>
+        <activity android:name="slack.app.p045ui.filepreview.FullSizeImageAttachmentActivityV2"/>
+        <activity android:theme="@style/NoActionModeOverlayTheme" android:name="slack.app.p045ui.JumpToActivity"/>
+        <activity android:name="slack.app.p045ui.threaddetails.filethreaddetails.filecommentarchive.FileCommentArchiveActivity"/>
+        <activity android:name="slack.app.p045ui.fileviewer.FileViewerActivity" android:parentActivityName="slack.app.ui.HomeActivity"/>
+        <activity android:theme="@style/HeadlessActivityTheme" android:name="slack.app.p045ui.DeepLinkActivity" android:excludeFromRecents="true">
+            <intent-filter>
+                <data android:scheme="@string/slack_scheme"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="@string/slack_join_team_app_link_host"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="@string/slack_magic_link_app_link_host" android:pathPattern="/t/.*/login/.*"/>
+                <data android:scheme="https" android:host="@string/slack_magic_link_app_link_host" android:pathPattern="/free-willy/.*"/>
+                <data android:scheme="https" android:host="@string/slack_magic_link_app_link_host" android:pathPattern="/calls/.*"/>
+                <data android:scheme="https" android:host="@string/slack_magic_link_app_link_host" android:pathPattern="/e/.*/magic-login-sso/.*"/>
+                <data android:scheme="https" android:host="@string/slack_magic_link_app_link_host" android:pathPattern="/t/.*/magic-login-sso/.*"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="go.slack.com"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="@string/slack_appsflyer_app_link_host" android:pathPrefix="@string/slack_appsflyer_app_link_path_prefix"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/CallsActivityTheme" android:name="slack.app.calls.p039ui.CallActivity" android:exported="false" android:launchMode="singleTop" android:screenOrientation="portrait"/>
+        <activity android:name="slack.app.p045ui.SharedChannelTeamListActivity"/>
+        <activity android:name="slack.app.p045ui.share.ShareContentActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="slack.app.p045ui.UploadChannelListActivity"/>
+        <activity android:name="slack.app.features.advancedsettings.activities.AdvancedSettingsActivity"/>
+        <activity android:name="slack.app.features.privacylicenses.activities.PrivacyLicensesActivity"/>
+        <activity android:name="slack.app.p045ui.archives.ArchiveActivity"/>
+        <activity android:name="slack.app.p045ui.activityfeed.ActivityFeedActivity"/>
+        <activity android:name="slack.app.p045ui.saveditems.SavedItemsActivity"/>
+        <activity android:name="slack.app.p045ui.IncomingCallActivity" android:launchMode="singleTop"/>
+        <activity android:name="slack.app.calls.push.CallNavigationActivity" android:exported="true"/>
+        <activity android:theme="@style/BlackActivityTheme" android:name="slack.app.p045ui.CreateChannelCallActivity"/>
+        <activity android:theme="@style/BlackActivityTheme" android:name="slack.app.p045ui.SurveyActivity"/>
+        <activity android:name="slack.app.p045ui.CallInviteActivity"/>
+        <activity android:name="slack.app.p045ui.teammigrations.MigrationInProgressTakeoverActivity"/>
+        <activity android:name="slack.app.p045ui.SwitchTeamsActivity"/>
+        <activity android:name="slack.app.p045ui.DomainClaimedTakeoverActivity"/>
+        <activity android:name="slack.app.p045ui.customstatus.SetCustomStatusActivity"/>
+        <activity android:name="slack.app.p045ui.VideoPlayerActivity" android:configChanges="orientation|screenSize"/>
+        <activity android:name="slack.app.features.createchannel.CreateChannelV2Activity"/>
+        <activity android:name="slack.app.p045ui.attachmentaction.AppMenuSelectActivity"/>
+        <activity android:name="slack.app.p045ui.blockkit.MultiSelectElementActivity"/>
+        <activity android:name="slack.app.features.langregionsettings.activities.LangRegionActivity"/>
+        <activity android:name="slack.app.p045ui.findyourteams.pendinginvite.PendingInvitesActivity"/>
+        <activity android:label="@string/fyt_your_workspaces" android:name="slack.app.p045ui.findyourteams.selectworkspaces.SelectWorkspacesActivity"/>
+        <activity android:label="@string/a11y_find_your_workspace" android:name="slack.app.p045ui.findyourteams.escapehatch.EscapeHatchActivity"/>
+        <activity android:label="@string/fyt_your_workspaces" android:name="slack.app.p045ui.findyourteams.selectworkspaces.promptsignin.PromptSignInActivity"/>
+        <activity android:name="slack.app.features.apppermissions.activities.AppPermissionsInviteActivity"/>
+        <activity android:name="slack.app.features.apppermissions.activities.AppPermissionsRequestActivity"/>
+        <activity android:name="slack.app.features.apppermissions.activities.AppPermissionsUserRequestActivity"/>
+        <activity android:name="slack.app.p045ui.appdialog.AppDialogActivity"/>
+        <activity android:name="slack.app.features.appviews.AppViewActivity"/>
+        <activity android:label="@string/fyt_add_teams_toolbar" android:name="slack.app.p045ui.findyourteams.addworkspaces.AddWorkspacesActivity"/>
+        <activity android:label="@string/email_confirmation_info_title" android:name="slack.app.p045ui.findyourteams.addworkspaces.emailconfirmationinfo.EmailConfirmationInfoActivity"/>
+        <activity android:label="@string/pick_email_title_sign_in" android:name="slack.app.p045ui.findyourteams.addworkspaces.pickemail.PickEmailForSignInActivity"/>
+        <activity android:label="@string/pick_email_title_join" android:name="slack.app.p045ui.findyourteams.addworkspaces.pickemail.PickEmailForJoinActivity"/>
+        <activity android:label="@string/pick_email_title_create" android:name="slack.app.p045ui.findyourteams.addworkspaces.pickemail.PickEmailForCreateActivity"/>
+        <activity android:label="" android:name="slack.app.p045ui.findyourteams.addworkspaces.pickworkspace.PickWorkspaceActivity"/>
+        <activity android:name="slack.app.p045ui.findyourteams.addworkspaces.AllowlistedWorkspacesActivity"/>
+        <activity android:name="slack.app.features.notificationdiagnostics.activities.NotificationDiagnosticsActivity"/>
+        <activity android:name="slack.app.p045ui.messagebottomsheet.MessageActionsSearchActivity"/>
+        <activity android:name="slack.app.p045ui.appshortcuts.AppShortcutsActivity"/>
+        <activity android:name="slack.app.p045ui.findyourteams.escapehatch.JoinableWorkspacesActivity"/>
+        <activity android:name="slack.app.p045ui.bettersnooze.BetterSnoozeActivity"/>
+        <activity android:name="slack.app.p045ui.dnd.GranularDndActivity"/>
+        <activity android:name="slack.app.p045ui.PromptUserToDownloadBrowserActivity"/>
+        <activity android:name="slack.app.p045ui.RootedDevicesBlockerViewActivity"/>
+        <activity android:name="slack.app.p045ui.SignInErrorActivity"/>
+        <activity android:name="slack.app.p045ui.CustomTermsOfServiceActivity"/>
+        <activity android:theme="@style/TractorTheme" android:name="slack.app.p045ui.createworkspace.CreateWorkspaceActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:theme="@style/TractorTheme" android:name="slack.app.p045ui.createworkspace.WorkspaceCreatedActivity"/>
+        <activity android:theme="@style/TractorTheme" android:name="slack.app.p045ui.createworkspace.finish.AllSetActivity"/>
+        <activity android:name="slack.app.p045ui.SecondaryAuthActivity" android:launchMode="singleTop" android:windowSoftInputMode="stateVisible"/>
+        <activity android:name="slack.app.p045ui.MdmDebugActivity"/>
+        <activity android:name="slack.app.p045ui.findyourteams.addworkspaces.CantAddWorkspaceTakeoverActivity"/>
+        <activity android:name="slack.app.p045ui.compose.ComposeActivity"/>
+        <activity android:name="slack.app.p045ui.channelinfo.emailaddress.ChannelEmailAddressActivity"/>
+        <activity android:name="slack.app.p045ui.acceptsharedchannel.AcceptSharedChannelActivity"/>
+        <activity android:name="slack.app.p045ui.minimumappversion.loggedout.AppUpgradeTakeoverActivity"/>
+        <activity android:name="slack.app.p045ui.sharechannel.ShareChannelActivity"/>
+        <activity android:name="slack.app.slackkit.multiselect.SKConversationSelectActivity"/>
+        <activity android:name="slack.app.push.bubbles.BubbleActivity" android:allowEmbedded="true" android:resizeableActivity="true"/>
+        <activity android:name="slack.app.p045ui.share.UploadActivityV2" android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="slack.app.features.identitylinks.p041ui.InterstitialActivity"/>
+        <activity android:name="slack.app.features.shareshortcuts.ShareShortcutActivity"/>
+        <receiver android:name="slack.app.utils.chrome.ChromeTabBroadcastReceiver" android:enabled="true"/>
+        <receiver android:name="com.appsflyer.SingleInstallBroadcastReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="slack.app.calls.push.CallInvitesCleanReceiver">
+            <intent-filter>
+                <action android:name="slack.app.push.clearmissedcalls"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="slack.app.AppUpdateReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="slack.app.rootdetection.RootDetectionBootReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="slack.app.push.SlackFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="slack.app.push.NotificationDismissReceiver" android:exported="false"/>
+        <service android:name="slack.app.push.NotificationActionIntentService" android:exported="false"/>
+        <service android:name="slack.app.net.http.UploadAvatarIntentService"/>
+        <service android:name="slack.app.calls.backend.CallServiceImpl" android:exported="false"/>
+        <service android:name="slack.app.mgr.UserPrefsIntentService" android:exported="false"/>
+        <service android:name="slack.app.chooser.ShareChooserTargetService" android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.chooser.ChooserTargetService"/>
+            </intent-filter>
+        </service>
+        <provider android:name="androidx.core.content.FileProvider" android:exported="false" android:authorities="com.Slack.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/paths"/>
+        </provider>
+        <activity android:name="slack.shareddm.activities.InviteSharedDmActivity"/>
+        <activity android:name="slack.shareddm.activities.AcceptSharedDmActivity"/>
+        <activity android:name="slack.stories.p009ui.viewer.StoryViewerActivity"/>
+        <activity android:name="slack.stories.p009ui.upload.StoriesActivity"/>
+        <activity android:name="slack.messages.flag.FlagMessagesActivity"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="false" android:directBootAware="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false" android:directBootAware="true">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery" android:exported="false">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false"/>
+        <receiver android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver" android:exported="false"/>
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.Slack.firebaseinitprovider" android:initOrder="100" android:directBootAware="true"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:exported="false" android:excludeFromRecents="true"/>
+        <service android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:exported="true" android:visibleToInstantApps="true"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:name="androidx.work.impl.background.systemalarm.SystemAlarmService" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.foreground.SystemForegroundService" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver" android:enabled="true" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="androidx.room.MultiInstanceInvalidationService" android:exported="false"/>
+        <meta-data android:name="com.mixpanel.android.MPConfig.EventsEndpoint" android:value="https://slack.com/beacon/track/"/>
+        <receiver android:name="com.mixpanel.android.mpmetrics.InstallReferrerReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:enabled="false" android:exported="false" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true" android:launchMode="singleInstance"/>
+        <activity android:theme="@style/Theme.PlayCore.Transparent" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:enabled="false" android:exported="false" android:stateNotNeeded="true"/>
+        <service android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService" android:enabled="false" android:exported="true"/>
+        <meta-data android:name="com.bugsnag.android.BUILD_UUID" android:value="011d6ed2-7ebc-483f-a439-02cf7a064cea"/>
+    </application>
+</manifest>
